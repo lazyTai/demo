@@ -14,7 +14,7 @@
         <img src="../public\images\3-19_08.gif" alt="">
       </div>
     </div>
-    <div style="font-size:21px">
+    <div>
       111
     </div>
   </div>

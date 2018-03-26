@@ -8,8 +8,11 @@ $radio:640;
 [data-dpr="1"] div{
   font-size: 12px;
 }
-[data-dpr="2"] div{
+[data-dpr="2"] div {
   font-size: 24px;
+}
+[data-dpr="3"] div {
+  font-size: 36px;
 }
 .rem2{
   .three_image {
