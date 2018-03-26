@@ -96,7 +96,7 @@ html:font-size->640px;
 html,
 body {
   font-size: 100px;
-  max-width: 640px;
+  max-width: 6.40rem;
   margin: 0 auto;
 }
 /* 1.設計圖 640px */
