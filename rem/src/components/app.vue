@@ -3,7 +3,8 @@
         app
     </div>
 </template>
-<style scoped>
+<style>
+@import url('../src/reset.css');
 .body {
   background: black;
 }
