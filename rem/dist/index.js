@@ -13586,8 +13586,38 @@
 	}
 
 	var App = { render: function render() {
-	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('router-link', { attrs: { "to": "/px" } }, [_c('button', [_vm._v("px")])]), _vm._v(" "), _c('router-link', { attrs: { "to": "/rem1" } }, [_c('button', [_vm._v("rem1")])])], 1);
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('router-link', { attrs: { "to": "/postcss" } }, [_c('button', [_vm._v("postcss")])]), _vm._v(" "), _c('router-link', { attrs: { "to": "/px" } }, [_c('button', [_vm._v("px")])]), _vm._v(" "), _c('router-link', { attrs: { "to": "/rem1" } }, [_c('button', [_vm._v("rem1")])]), _vm._v(" "), _c('router-link', { attrs: { "to": "/rem2" } }, [_c('button', [_vm._v("rem2")])])], 1);
 	  }, staticRenderFns: [] };
+
+	function styleInject(css, ref) {
+	  if ( ref === void 0 ) ref = {};
+	  var insertAt = ref.insertAt;
+
+	  if (!css || typeof document === 'undefined') { return; }
+
+	  var head = document.head || document.getElementsByTagName('head')[0];
+	  var style = document.createElement('style');
+	  style.type = 'text/css';
+
+	  if (insertAt === 'top') {
+	    if (head.firstChild) {
+	      head.insertBefore(style, head.firstChild);
+	    } else {
+	      head.appendChild(style);
+	    }
+	  } else {
+	    head.appendChild(style);
+	  }
+
+	  if (style.styleSheet) {
+	    style.styleSheet.cssText = css;
+	  } else {
+	    style.appendChild(document.createTextNode(css));
+	  }
+	}
+
+	var css = "/* 1 为什么要使用rem\r\n如果使用px直接在手机上就是640px\r\n有些手机就320px\r\n怎么办\r\n需要缩小1/2\r\n */\r\n\r\n.px .three_image {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  padding: 0 12px 0 12px;\r\n}\r\n\r\n/* 直接使用px模式 */\r\n\r\n.px .three_image .image2 {\r\n  margin-left: 17px;\r\n}\r\n\r\n/* 1.設計圖 640px */\r\n\r\n.px .three_image .image3 {\r\n  margin-left: 17px;\r\n}\r\n\r\n.px .image_header {\r\n  width: 640px;\r\n  height: 738px;\r\n}\r\n\r\n.px .image_header img {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.px .three_image {\r\n  margin-top: 50px;\r\n  width: 100%;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInB4LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFJQTs7Ozs7R0FLRzs7QUFDRjtFQUNDLHFCQUFjO0VBQWQscUJBQWM7RUFBZCxjQUFjO0VBQ2QsdUJBQXVCO0NBQ3hCOztBQVhELGNBQWM7O0FBWWQ7RUFDRSxrQkFBa0I7Q0FDbkI7O0FBZkMsaUJBQWlCOztBQWdCbkI7RUFDRSxrQkFBa0I7Q0FDbkI7O0FBQ0Q7RUFDRSxhQUFhO0VBQ2IsY0FBYztDQUNmOztBQUNEO0VBQ0UsWUFBWTtFQUNaLGFBQWE7Q0FDZDs7QUFDRDtFQUNFLGlCQUFpQjtFQUNqQixZQUFZO0NBQ2IiLCJmaWxlIjoicHguY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnB4e1xyXG4gIC8qIDEu6Kit6KiI5ZyWIDY0MHB4ICovXHJcbi8qIOebtOaOpeS9v+eUqHB45qih5byPICovXHJcblxyXG4vKiAxIOS4uuS7gOS5iOimgeS9v+eUqHJlbVxyXG7lpoLmnpzkvb/nlKhweOebtOaOpeWcqOaJi+acuuS4iuWwseaYrzY0MHB4XHJcbuacieS6m+aJi+acuuWwsTMyMHB4XHJcbuaAjuS5iOWKnlxyXG7pnIDopoHnvKnlsI8xLzJcclxuICovXHJcbiAudGhyZWVfaW1hZ2Uge1xyXG4gIGRpc3BsYXk6IGZsZXg7XHJcbiAgcGFkZGluZzogMCAxMnB4IDAgMTJweDtcclxufVxyXG4udGhyZWVfaW1hZ2UgLmltYWdlMiB7XHJcbiAgbWFyZ2luLWxlZnQ6IDE3cHg7XHJcbn1cclxuLnRocmVlX2ltYWdlIC5pbWFnZTMge1xyXG4gIG1hcmdpbi1sZWZ0OiAxN3B4O1xyXG59XHJcbi5pbWFnZV9oZWFkZXIge1xyXG4gIHdpZHRoOiA2NDBweDtcclxuICBoZWlnaHQ6IDczOHB4O1xyXG59XHJcbi5pbWFnZV9oZWFkZXIgaW1nIHtcclxuICB3aWR0aDogMTAwJTtcclxuICBoZWlnaHQ6IDEwMCU7XHJcbn1cclxuLnRocmVlX2ltYWdlIHtcclxuICBtYXJnaW4tdG9wOiA1MHB4O1xyXG4gIHdpZHRoOiAxMDAlO1xyXG59XHJcbn0iXX0= */";
+	styleInject(css);
 
 	var Px = { render: function render() {
 	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _vm._m(0);
@@ -13595,10 +13625,83 @@
 	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "px" }, [_c('div', { staticClass: "image_header" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_01.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "three_image" }, [_c('div', { staticClass: "image1" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_04.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image2" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_06.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image3" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_08.gif", "alt": "" } })])])]);
 	  }] };
 
+	var css$1 = "/* 1 为什么要使用rem\r\n如果使用px直接在手机上就是640px\r\n有些手机就320px\r\n怎么办\r\n需要缩小1/2\r\n */\r\n\r\n.rem1 .three_image {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  padding: 0 1.92px 0 1.92px;\r\n  padding: 0 0.12rem 0 0.12rem;\r\n}\r\n\r\n/* 直接使用px模式 */\r\n\r\n.rem1 .three_image .image2 {\r\n  margin-left: 2.72px;\r\n  margin-left: 0.17rem;\r\n}\r\n\r\n/* 1.設計圖 640px */\r\n\r\n.rem1 .three_image .image3 {\r\n  margin-left: 2.72px;\r\n  margin-left: 0.17rem;\r\n}\r\n\r\n/* 在320px的界面上\r\n 普通字体大小 8px\r\n\r\n\r\n rem是根据html的字体变化大小的单位\r\n html:font-size->100px;\r\n 那么 100px-->1rem\r\n\r\nhtml:font-size->640px;\r\n 那么 100px-->6.4rem\r\n这样太麻烦了\r\n要是100px->还是能1rem表示呢？\r\n也就是 html:font-size->100px;\r\n */\r\n\r\n.rem1 .image_header {\r\n  width: 102.4px;\r\n  width: 6.4rem;\r\n  height: 118.08px;\r\n  height: 7.38rem;\r\n}\r\n\r\n/* 640px的设计稿 \r\n普通字体大小 16px */\r\n\r\n.rem1 .image_header img {\r\n  width: 100%;\r\n  height: 100%;\r\n}\r\n\r\n.rem1 .three_image {\r\n  margin-top: 8px;\r\n  margin-top: 0.5rem;\r\n  width: 100%;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlbTEuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQXFCQTs7Ozs7R0FLRzs7QUFDRjtFQUNDLHFCQUFjO0VBQWQscUJBQWM7RUFBZCxjQUFjO0VBQ2QsMkJBQTZCO0VBQTdCLDZCQUE2QjtDQUM5Qjs7QUFYRCxjQUFjOztBQVlkO0VBQ0Usb0JBQXFCO0VBQXJCLHFCQUFxQjtDQUN0Qjs7QUFmRCxpQkFBaUI7O0FBZ0JqQjtFQUNFLG9CQUFxQjtFQUFyQixxQkFBcUI7Q0FDdEI7O0FBaENEOzs7Ozs7Ozs7Ozs7O0dBYUc7O0FBb0JIO0VBQ0UsZUFBYztFQUFkLGNBQWM7RUFDZCxpQkFBZ0I7RUFBaEIsZ0JBQWdCO0NBQ2pCOztBQXZDQztjQUNZOztBQXVDZDtFQUNFLFlBQVk7RUFDWixhQUFhO0NBQ2Q7O0FBQ0Q7RUFDRSxnQkFBbUI7RUFBbkIsbUJBQW1CO0VBQ25CLFlBQVk7Q0FDYiIsImZpbGUiOiJyZW0xLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5yZW0xe1xyXG4gIC8qIDY0MHB455qE6K6+6K6h56i/IFxyXG7mma7pgJrlrZfkvZPlpKflsI8gMTZweCAqL1xyXG5cclxuLyog5ZyoMzIwcHjnmoTnlYzpnaLkuIpcclxuIOaZrumAmuWtl+S9k+Wkp+WwjyA4cHhcclxuXHJcblxyXG4gcmVt5piv5qC55o2uaHRtbOeahOWtl+S9k+WPmOWMluWkp+Wwj+eahOWNleS9jVxyXG4gaHRtbDpmb250LXNpemUtPjEwMHB4O1xyXG4g6YKj5LmIIDEwMHB4LS0+MXJlbVxyXG5cclxuaHRtbDpmb250LXNpemUtPjY0MHB4O1xyXG4g6YKj5LmIIDEwMHB4LS0+Ni40cmVtXHJcbui/meagt+Wkqum6u+eDpuS6hlxyXG7opoHmmK8xMDBweC0+6L+Y5piv6IO9MXJlbeihqOekuuWRou+8n1xyXG7kuZ/lsLHmmK8gaHRtbDpmb250LXNpemUtPjEwMHB4O1xyXG4gKi9cclxuLyogMS7oqK3oqIjlnJYgNjQwcHggKi9cclxuLyog55u05o6l5L2/55SocHjmqKHlvI8gKi9cclxuXHJcbi8qIDEg5Li65LuA5LmI6KaB5L2/55SocmVtXHJcbuWmguaenOS9v+eUqHB455u05o6l5Zyo5omL5py65LiK5bCx5pivNjQwcHhcclxu5pyJ5Lqb5omL5py65bCxMzIwcHhcclxu5oCO5LmI5YqeXHJcbumcgOimgee8qeWwjzEvMlxyXG4gKi9cclxuIC50aHJlZV9pbWFnZSB7XHJcbiAgZGlzcGxheTogZmxleDtcclxuICBwYWRkaW5nOiAwIDAuMTJyZW0gMCAwLjEycmVtO1xyXG59XHJcbi50aHJlZV9pbWFnZSAuaW1hZ2UyIHtcclxuICBtYXJnaW4tbGVmdDogMC4xN3JlbTtcclxufVxyXG4udGhyZWVfaW1hZ2UgLmltYWdlMyB7XHJcbiAgbWFyZ2luLWxlZnQ6IDAuMTdyZW07XHJcbn1cclxuLmltYWdlX2hlYWRlciB7XHJcbiAgd2lkdGg6IDYuNHJlbTtcclxuICBoZWlnaHQ6IDcuMzhyZW07XHJcbn1cclxuLmltYWdlX2hlYWRlciBpbWcge1xyXG4gIHdpZHRoOiAxMDAlO1xyXG4gIGhlaWdodDogMTAwJTtcclxufVxyXG4udGhyZWVfaW1hZ2Uge1xyXG4gIG1hcmdpbi10b3A6IDAuNXJlbTtcclxuICB3aWR0aDogMTAwJTtcclxufVxyXG59Il19 */";
+	styleInject(css$1);
+
 	var Rem1 = { render: function render() {
 	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _vm._m(0);
 	  }, staticRenderFns: [function () {
-	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "body" }, [_c('div', { staticClass: "image_header" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_01.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "three_image" }, [_c('div', { staticClass: "image1" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_04.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image2" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_06.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image3" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_08.gif", "alt": "" } })])])]);
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "rem1" }, [_c('div', { staticClass: "image_header" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_01.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "three_image" }, [_c('div', { staticClass: "image1" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_04.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image2" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_06.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image3" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_08.gif", "alt": "" } })])])]);
+	  }],
+	  mounted: function mounted() {
+	    document.documentElement.style.fontSize = "100px";
+	  }
+	};
+
+	var css$2 = "\r\n.rem2 .three_image {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n    overflow: hidden;\r\n    width: 100%;\r\n    padding: 0 3px 0 0.96px;\r\n    padding: 0 0.1875rem 0 0.06rem;\r\n  }\r\n  .rem2 .three_image  .image{\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n    width:49.25px;\r\n    width:3.07813rem;\r\n    height:26.25px;\r\n    height:1.64063rem;\r\n  }\r\n  .rem2 .three_image  .image img{\r\n    width:100%;\r\n    height:100%;\r\n  }\r\n  .rem2 .three_image .image2 {\r\n    margin-left: 4.25px;\r\n    margin-left: 0.26563rem;\r\n  }\r\n  .rem2 .three_image .image3 {\r\n    margin-left: 4.25px;\r\n    margin-left: 0.26563rem;\r\n  }\r\n  .rem2 .image_header {\r\n    width: 100%;\r\n    height: 184.5px;\r\n    height: 11.53125rem;\r\n  }\r\n  .rem2 .image_header img {\r\n    width: 100%;\r\n    height: 100%;\r\n  }\r\n  .rem2 .three_image {\r\n    margin-top: 1.25px;\r\n    margin-top: 0.07813rem;\r\n    width: 100%;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlbTIuY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7QUFHRTtJQUNFLHFCQUFjO0lBQWQscUJBQWM7SUFBZCxjQUFjO0lBQ2QsK0JBQXVCO1lBQXZCLHVCQUF1QjtJQUN2QixpQkFBaUI7SUFDakIsWUFBWTtJQUNaLHdCQUFtRDtJQUFuRCwrQkFBbUQ7R0FDcEQ7RUFDRDtJQUNFLCtCQUF1QjtZQUF2Qix1QkFBdUI7SUFDdkIsY0FBNkI7SUFBN0IsaUJBQTZCO0lBQzdCLGVBQThCO0lBQTlCLGtCQUE4QjtHQUMvQjtFQUNEO0lBQ0UsV0FBVztJQUNYLFlBQVk7R0FDYjtFQUNEO0lBQ0Usb0JBQW1DO0lBQW5DLHdCQUFtQztHQUNwQztFQUNEO0lBQ0Usb0JBQW1DO0lBQW5DLHdCQUFtQztHQUNwQztFQUNEO0lBQ0UsWUFBWTtJQUNaLGdCQUErQjtJQUEvQixvQkFBK0I7R0FDaEM7RUFDRDtJQUNFLFlBQVk7SUFDWixhQUFhO0dBQ2Q7RUFDRDtJQUNFLG1CQUFpQztJQUFqQyx1QkFBaUM7SUFDakMsWUFBWTtHQUNiIiwiZmlsZSI6InJlbTIuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiXHJcbiRyYWRpbzo2NDA7XHJcbi5yZW0ye1xyXG4gIC50aHJlZV9pbWFnZSB7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIHBhZGRpbmc6IDAgY2FsYygxMnJlbS8kcmFkaW8qMTApIDAgY2FsYygxMnJlbS8yMDApO1xyXG4gIH1cclxuICAudGhyZWVfaW1hZ2UgIC5pbWFnZXtcclxuICAgIGJveC1zaXppbmc6IGJvcmRlci1ib3g7XHJcbiAgICB3aWR0aDpjYWxjKDE5N3JlbS8kcmFkaW8qMTApO1xyXG4gICAgaGVpZ2h0OmNhbGMoMTA1cmVtLyRyYWRpbyoxMCk7XHJcbiAgfVxyXG4gIC50aHJlZV9pbWFnZSAgLmltYWdlIGltZ3tcclxuICAgIHdpZHRoOjEwMCU7XHJcbiAgICBoZWlnaHQ6MTAwJTtcclxuICB9XHJcbiAgLnRocmVlX2ltYWdlIC5pbWFnZTIge1xyXG4gICAgbWFyZ2luLWxlZnQ6IGNhbGMoMTdyZW0vJHJhZGlvKjEwKTtcclxuICB9XHJcbiAgLnRocmVlX2ltYWdlIC5pbWFnZTMge1xyXG4gICAgbWFyZ2luLWxlZnQ6IGNhbGMoMTdyZW0vJHJhZGlvKjEwKTtcclxuICB9XHJcbiAgLmltYWdlX2hlYWRlciB7XHJcbiAgICB3aWR0aDogMTAwJTtcclxuICAgIGhlaWdodDogY2FsYyg3MzhyZW0vJHJhZGlvKjEwKTtcclxuICB9XHJcbiAgLmltYWdlX2hlYWRlciBpbWcge1xyXG4gICAgd2lkdGg6IDEwMCU7XHJcbiAgICBoZWlnaHQ6IDEwMCU7XHJcbiAgfVxyXG4gIC50aHJlZV9pbWFnZSB7XHJcbiAgICBtYXJnaW4tdG9wOiBjYWxjKDVyZW0vJHJhZGlvKjEwKTtcclxuICAgIHdpZHRoOiAxMDAlO1xyXG4gIH1cclxufSJdfQ== */";
+	styleInject(css$2);
+
+	(function flexible(window, document) {
+	  var docEl = document.documentElement;
+	  var dpr = window.devicePixelRatio || 1;
+
+	  // adjust body font size
+	  function setBodyFontSize() {
+	    if (document.body) {
+	      document.body.style.fontSize = 12 * dpr + 'px';
+	    } else {
+	      document.addEventListener('DOMContentLoaded', setBodyFontSize);
+	    }
+	  }
+	  setBodyFontSize();
+
+	  // set 1rem = viewWidth / 10
+	  function setRemUnit() {
+	    var rem = docEl.clientWidth / 10;
+	    docEl.style.fontSize = rem + 'px';
+	  }
+
+	  setRemUnit();
+
+	  // reset rem unit on page resize
+	  window.addEventListener('resize', setRemUnit);
+	  window.addEventListener('pageshow', function (e) {
+	    if (e.persisted) {
+	      setRemUnit();
+	    }
+	  });
+
+	  // detect 0.5px supports
+	  if (dpr >= 2) {
+	    var fakeBody = document.createElement('body');
+	    var testElement = document.createElement('div');
+	    testElement.style.border = '.5px solid transparent';
+	    fakeBody.appendChild(testElement);
+	    docEl.appendChild(fakeBody);
+	    if (testElement.offsetHeight === 1) {
+	      docEl.classList.add('hairlines');
+	    }
+	    docEl.removeChild(fakeBody);
+	  }
+	})(window, document);
+
+	var Rem2 = { render: function render() {
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _vm._m(0);
+	  }, staticRenderFns: [function () {
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "rem2" }, [_c('div', { staticClass: "image_header" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_01.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "three_image" }, [_c('div', { staticClass: "image1 image" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_04.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image2 image" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_06.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image3 image" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_08.gif", "alt": "" } })])])]);
+	  }],
+	  mounted: function mounted() {
+	    // document.documentElement.style.fontSize = "62.5%";
+	  }
+	};
+
+	var css$3 = ".ellipsis {\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n  }\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBvc3Rjc3MuY3NzIiwiPG5vIHNvdXJjZT4iXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUNBQSxpQkFBQTtJQUFBLHdCQUFBO0lBQUEsb0JBQUE7R0RFRyIsImZpbGUiOiJwb3N0Y3NzLmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5lbGxpcHNpcyB7XHJcbiAgICBAdXRpbHMtZWxsaXBzaXM7XHJcbiAgfSIsbnVsbF19 */";
+	styleInject(css$3);
+
+	var PostCss = { render: function render() {
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _vm._m(0);
+	  }, staticRenderFns: [function () {
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', {}, [_c('div', { staticClass: "ellipsis" }, [_vm._v(" ellipsis")])]);
 	  }] };
 
 	Vue.use(VueRouter);
@@ -13610,6 +13713,12 @@
 	}, {
 	    path: '/rem1',
 	    component: Rem1
+	}, {
+	    path: '/rem2',
+	    component: Rem2
+	}, {
+	    path: '/postcss',
+	    component: PostCss
 	}, {
 	    path: '/',
 	    redirect: '/app'

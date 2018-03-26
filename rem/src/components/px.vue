@@ -17,45 +17,10 @@
   </div>
 </template>
 <style>
-@import url("../src/reset.css");
-html,
-body {
-  max-width: 640px;
-  margin: 0 auto;
-}
-/* 1.設計圖 640px */
-/* 直接使用px模式 */
 
-/* 1 为什么要使用rem
-如果使用px直接在手机上就是640px
-有些手机就320px
-怎么办
-需要缩小1/2
- */
-.three_image {
-  display: flex;
-  padding: 0 12px 0 12px;
-}
-.three_image .image2 {
-  margin-left: 17px;
-}
-.three_image .image3 {
-  margin-left: 17px;
-}
-.image_header {
-  width: 640px;
-  height: 738px;
-}
-.image_header img {
-  width: 100%;
-  height: 100%;
-}
-.three_image {
-  margin-top: 50px;
-  width: 100%;
-}
 </style>
 
 <script>
+import './style/px.css'
 export default {};
 </script>

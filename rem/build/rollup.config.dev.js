@@ -4,6 +4,11 @@ import commonjs from 'rollup-plugin-commonjs';
 import babel from 'rollup-plugin-babel';
 import vueRollup from 'rollup-plugin-vue';
 import replace from 'rollup-plugin-replace'
+import Postcss from 'rollup-plugin-postcss'
+import PostUtils from 'postcss-utils'
+import PostCalc from 'postcss-calc'
+import PostNext from 'postcss-cssnext'
+import PreCss from 'precss'
 console.log("name", name);
 console.log("version", version);
 console.log("author", author);
@@ -16,8 +21,15 @@ export default {
     },
     sourceMap: true,
     plugins: [
-        vueRollup({
-            css: './dist/demo.css'
+        Postcss({
+            extensions: ['.css'],
+            sourceMap: true,
+            plugins: [
+                PreCss(),
+                PostNext(),
+                PostUtils(),
+                PostCalc(),
+            ]
         }),
         replace({
             'process.env.NODE_ENV': JSON.stringify('development'),
@@ -29,6 +41,9 @@ export default {
             // }
         }),
         commonjs(),
+        vueRollup({
+            css: './dist/demo.css'
+        }),
         babel({
             exclude: 'node_modules/**'
         }),

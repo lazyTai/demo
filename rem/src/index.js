@@ -3,7 +3,8 @@ import VueRouter from 'vue-router'
 import App from './components/app.vue'
 import Px from './components/px.vue'
 import Rem1 from './components/rem1.vue'
-
+import Rem2 from './components/rem2.vue'
+import PostCss from './components/postcss.vue'
 Vue.use(VueRouter)
 const routes = [
     {
@@ -16,6 +17,14 @@ const routes = [
     {
         path: '/rem1',
         component: Rem1
+    },
+    {
+        path: '/rem2',
+        component: Rem2
+    },
+    {
+        path: '/postcss',
+        component: PostCss
     },
 
     {
