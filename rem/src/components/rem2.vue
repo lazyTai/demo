@@ -14,6 +14,9 @@
         <img src="../public\images\3-19_08.gif" alt="">
       </div>
     </div>
+    <div style="font-size:21px">
+      111
+    </div>
   </div>
 </template>
 <style>
@@ -30,7 +33,7 @@
 
 <script>
 import "./style/rem2.css";
-import './util/taobao'
+import "./util/taobao";
 export default {
   mounted() {
     // document.documentElement.style.fontSize = "62.5%";

@@ -12,6 +12,9 @@
     <router-link to="/rem2">
       <button>rem2</button>
     </router-link>
+    <router-link to="/flex">
+      <button>flex</button>
+    </router-link>
   </div>
 </template>
 <script>

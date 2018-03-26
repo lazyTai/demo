@@ -5,6 +5,7 @@ import Px from './components/px.vue'
 import Rem1 from './components/rem1.vue'
 import Rem2 from './components/rem2.vue'
 import PostCss from './components/postcss.vue'
+import Flex from './components/learnflex.vue'
 Vue.use(VueRouter)
 const routes = [
     {
@@ -26,7 +27,10 @@ const routes = [
         path: '/postcss',
         component: PostCss
     },
-
+    {
+        path: '/flex',
+        component: Flex
+    },
     {
         path: '/',
         redirect: '/app'

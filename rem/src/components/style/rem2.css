@@ -1,5 +1,16 @@
 
 $radio:640;
+
+.rem2{
+  margin: 0 auto;
+  max-width: calc(640rem/$radio*10);
+}
+[data-dpr="1"] div{
+  font-size: 12px;
+}
+[data-dpr="2"] div{
+  font-size: 24px;
+}
 .rem2{
   .three_image {
     display: flex;
@@ -18,7 +29,7 @@ $radio:640;
     height:100%;
   }
   .three_image .image2 {
-    margin-left: calc(17rem/$radio*10);
+    margin-left: calc(17rem/$radio*10); 
   }
   .three_image .image3 {
     margin-left: calc(17rem/$radio*10);
