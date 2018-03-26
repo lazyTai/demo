@@ -2,6 +2,7 @@ import Vue from 'vue/dist/vue.js'
 import VueRouter from 'vue-router'
 import App from './components/app.vue'
 import Px from './components/px.vue'
+import Rem1 from './components/rem1.vue'
 
 Vue.use(VueRouter)
 const routes = [
@@ -11,6 +12,10 @@ const routes = [
     {
         path: '/px',
         component: Px
+    },
+    {
+        path: '/rem1',
+        component: Rem1
     },
 
     {

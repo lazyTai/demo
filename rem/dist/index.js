@@ -13586,7 +13586,7 @@
 	}
 
 	var App = { render: function render() {
-	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('router-link', { attrs: { "to": "/px" } }, [_c('button', [_vm._v("px")])])], 1);
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('router-link', { attrs: { "to": "/px" } }, [_c('button', [_vm._v("px")])]), _vm._v(" "), _c('router-link', { attrs: { "to": "/rem1" } }, [_c('button', [_vm._v("rem1")])])], 1);
 	  }, staticRenderFns: [] };
 
 	var Px = { render: function render() {
@@ -13595,12 +13595,21 @@
 	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "px" }, [_c('div', { staticClass: "image_header" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_01.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "three_image" }, [_c('div', { staticClass: "image1" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_04.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image2" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_06.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image3" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_08.gif", "alt": "" } })])])]);
 	  }] };
 
+	var Rem1 = { render: function render() {
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _vm._m(0);
+	  }, staticRenderFns: [function () {
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "body" }, [_c('div', { staticClass: "image_header" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_01.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "three_image" }, [_c('div', { staticClass: "image1" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_04.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image2" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_06.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image3" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_08.gif", "alt": "" } })])])]);
+	  }] };
+
 	Vue.use(VueRouter);
 	var routes = [{
 	    path: '/app', component: App
 	}, {
 	    path: '/px',
 	    component: Px
+	}, {
+	    path: '/rem1',
+	    component: Rem1
 	}, {
 	    path: '/',
 	    redirect: '/app'
