@@ -10964,8 +10964,10 @@
 	var Vue = unwrapExports(vue);
 
 	var App = { render: function render() {
-	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "body" }, [_vm._v(" app ")]);
-	  }, staticRenderFns: [], _scopeId: 'data-v-54dbbc3e' };
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _vm._m(0);
+	  }, staticRenderFns: [function () {
+	    var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "app" }, [_c('div', { staticClass: "image_header" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_01.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "three_image" }, [_c('div', { staticClass: "image1" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_04.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image2" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_06.png", "alt": "" } })]), _vm._v(" "), _c('div', { staticClass: "image3" }, [_c('img', { attrs: { "src": "../public\\images\\3-19_08.gif", "alt": "" } })])])]);
+	  }] };
 
 	new Vue({
 	    el: '#root',
