@@ -2,12 +2,12 @@ export const TAnimate = {
     name: 't-animate',
     data() {
         return {
-            animateValue: 0
+            animateValue: null
         }
     },
     props: {
         to: {
-            type: [String, Number],
+            type: [String, Number, Object],
             required: true
         }
     },
@@ -20,19 +20,29 @@ export const TAnimate = {
         ])
     },
     watch: {
-        to(newv, oldv) {
-            var self = this;
-            var coords = { x: _clone(oldv), y: 0 }; // Start at (0, 0)
-            var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
-                .to({ x: _clone(newv), y: 200 }, 500) // Move to (300, 200) in 1 second.
-                .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
-                .onUpdate(function () { // Called after tween.js updates 'coords'.
-                    // Move 'box' to the position described by 'coords' with a CSS translation.
-                    // box.style.setProperty('transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)');
-                    self.$data.animateValue = _clone(coords.x)
-                })
-                .start(); // Start the tween immediately.
+        to: {
+            handler(newv) {
+                var self = this;
+                // console.log("newv", newv)
+                var coords = _clone(self.$data.animateValue); // Start at (0, 0)
+                var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
+                    .to(_clone(newv), 500) // Move to (300, 200) in 1 second.
+                    .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+                    .onUpdate(function () { // Called after tween.js updates 'coords'.
+                        // Move 'box' to the position described by 'coords' with a CSS translation.
+                        // box.style.setProperty('transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)');
+                        // console.log('update', coords)
+                        self.$data.animateValue = _clone(coords)
+                    })
+                    .onComplete(function () {
+                        self.$data.animateValue = _clone(newv)
+                    })
+                    .start(); // Start the tween immediately.
+            },
+            deep: true
         }
+    },
+    updated() {
     },
     mounted() {
         // Setup the animation loop.
@@ -44,7 +54,6 @@ export const TAnimate = {
         this.$data.animateValue = _clone(this.$props.to)
     },
     install(Vue, options = {}) {
-        debugger
         Vue.component('t-animate', tAnimate)
     },
 }

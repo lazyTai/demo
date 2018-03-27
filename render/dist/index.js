@@ -8018,13 +8018,13 @@
       name: 't-animate',
       data: function data() {
           return {
-              animateValue: 0
+              animateValue: null
           };
       },
 
       props: {
           to: {
-              type: [String, Number],
+              type: [String, Number, Object],
               required: true
           }
       },
@@ -8036,20 +8036,29 @@
       },
 
       watch: {
-          to: function to(newv, oldv) {
-              var self = this;
-              var coords = { x: _clone(oldv), y: 0 }; // Start at (0, 0)
-              var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
-              .to({ x: _clone(newv), y: 200 }, 500) // Move to (300, 200) in 1 second.
-              .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
-              .onUpdate(function () {
-                  // Called after tween.js updates 'coords'.
-                  // Move 'box' to the position described by 'coords' with a CSS translation.
-                  // box.style.setProperty('transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)');
-                  self.$data.animateValue = _clone(coords.x);
-              }).start(); // Start the tween immediately.
+          to: {
+              handler: function handler(newv) {
+                  var self = this;
+                  // console.log("newv", newv)
+                  var coords = _clone(self.$data.animateValue); // Start at (0, 0)
+                  var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
+                  .to(_clone(newv), 500) // Move to (300, 200) in 1 second.
+                  .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+                  .onUpdate(function () {
+                      // Called after tween.js updates 'coords'.
+                      // Move 'box' to the position described by 'coords' with a CSS translation.
+                      // box.style.setProperty('transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)');
+                      // console.log('update', coords)
+                      self.$data.animateValue = _clone(coords);
+                  }).onComplete(function () {
+                      self.$data.animateValue = _clone(newv);
+                  }).start(); // Start the tween immediately.
+              },
+
+              deep: true
           }
       },
+      updated: function updated() {},
       mounted: function mounted() {
           // Setup the animation loop.
           function animate(time) {
@@ -8061,7 +8070,6 @@
       },
       install: function install(Vue) {
 
-          debugger;
           Vue.component('t-animate', tAnimate);
       }
   };
@@ -8073,19 +8081,20 @@
   Vue.use(TAnimate.name, TAnimate);
 
   var App = { render: function render() {
-      var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('t-animate', { attrs: { "to": JSON.stringify(JSON.parse(_vm.value)) }, scopedSlots: _vm._u([{ key: "default", fn: function fn(scope) {
+      var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('t-animate', { attrs: { "to": _vm.value }, scopedSlots: _vm._u([{ key: "default", fn: function fn(scope) {
             return _c('div', {}, [_c('div', { domProps: { "innerHTML": _vm._s(scope) } })]);
           } }]) }), _vm._v(" "), _c('button', { on: { "click": _vm.add } }, [_vm._v("add")])], 1);
     }, staticRenderFns: [],
     data: function data() {
       return {
-        value: 0
+        value: { x: 0, y: 1 }
       };
     },
 
     methods: {
       add: function add() {
-        this.$data.value += 100;
+        this.$data.value.x += 100;
+        this.$data.value.y += 100;
       }
     },
     components: {

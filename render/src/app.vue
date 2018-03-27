@@ -1,6 +1,6 @@
 <template>
     <div>
-        <t-animate :to="JSON.stringify( JSON.parse(value))">
+        <t-animate :to="value">
             <div slot-scope="scope">
                 <div v-html='scope'></div>
             </div>
@@ -19,12 +19,13 @@ function _clone(value) {
 export default {
   data() {
     return {
-      value: 0
+      value: { x: 0, y: 1 }
     };
   },
   methods: {
     add() {
-      this.$data.value += 100;
+      this.$data.value.x += 100;
+      this.$data.value.y += 100;
     }
   },
   components: {
