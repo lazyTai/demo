@@ -1,11 +1,18 @@
 {
   "presets": [
     [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    [
       "es2015",
       {
         "modules": false
       }
-    ]
+    ],
+    "stage-3"
   ],
   "plugins": [
     "external-helpers"

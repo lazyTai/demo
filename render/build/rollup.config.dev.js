@@ -12,9 +12,9 @@ export default {
     output: {
         file: './dist/index.js',
         format: 'umd',
-        name: 'MyGood'
+        name: 'MyGood',
+        sourcemap: true,
     },
-    sourceMap: true,
     plugins: [
         replace({
             'process.env.NODE_ENV': JSON.stringify('development'),

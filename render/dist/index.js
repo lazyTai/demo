@@ -8014,24 +8014,84 @@
     }, 0);
   }
 
-  Vue.component('H', {
-      render: function render(createElement) {
-          console.log(this.$slots);
-          return createElement('h' + this.level, // tag name 标签名称
-          this.$slots.default // 子组件中的阵列
-          );
+  var TAnimate = {
+      name: 't-animate',
+      data: function data() {
+          return {
+              animateValue: 0
+          };
       },
+
       props: {
-          level: {
-              type: [Number, String],
-              default: 1
+          to: {
+              type: [String, Number],
+              required: true
           }
+      },
+      render: function render(h) {
+          var self = this;
+          return h('div', [self.$scopedSlots.default({
+              animateValue: self.$data.animateValue
+          })]);
+      },
+
+      watch: {
+          to: function to(newv, oldv) {
+              var self = this;
+              var coords = { x: _clone(oldv), y: 0 }; // Start at (0, 0)
+              var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
+              .to({ x: _clone(newv), y: 200 }, 500) // Move to (300, 200) in 1 second.
+              .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+              .onUpdate(function () {
+                  // Called after tween.js updates 'coords'.
+                  // Move 'box' to the position described by 'coords' with a CSS translation.
+                  // box.style.setProperty('transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)');
+                  self.$data.animateValue = _clone(coords.x);
+              }).start(); // Start the tween immediately.
+          }
+      },
+      mounted: function mounted() {
+          // Setup the animation loop.
+          function animate(time) {
+              requestAnimationFrame(animate);
+              TWEEN.update(time);
+          }
+          requestAnimationFrame(animate);
+          this.$data.animateValue = _clone(this.$props.to);
+      },
+      install: function install(Vue) {
+
+          debugger;
+          Vue.component('t-animate', tAnimate);
       }
-  });
+  };
+
+  function _clone(value) {
+      return JSON.parse(JSON.stringify(value));
+  }
+
+  Vue.use(TAnimate.name, TAnimate);
 
   var App = { render: function render() {
-      var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('H', { attrs: { "level": "5" } }, [_c('div', [_vm._v("4")]), _vm._v(" "), _c('div', [_vm._v("1")]), _vm._v(" "), _c('div', [_vm._v("2")]), _vm._v(" "), _c('div', [_vm._v("3")])])], 1);
-    }, staticRenderFns: [] };
+      var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('t-animate', { attrs: { "to": JSON.stringify(JSON.parse(_vm.value)) }, scopedSlots: _vm._u([{ key: "default", fn: function fn(scope) {
+            return _c('div', {}, [_c('div', { domProps: { "innerHTML": _vm._s(scope) } })]);
+          } }]) }), _vm._v(" "), _c('button', { on: { "click": _vm.add } }, [_vm._v("add")])], 1);
+    }, staticRenderFns: [],
+    data: function data() {
+      return {
+        value: 0
+      };
+    },
+
+    methods: {
+      add: function add() {
+        this.$data.value += 100;
+      }
+    },
+    components: {
+      "t-animate": TAnimate
+    }
+  };
 
   new Vue({ render: function render(h) {
           return h(App);
