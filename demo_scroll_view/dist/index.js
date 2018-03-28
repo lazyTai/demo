@@ -20553,10 +20553,14 @@
               },
               domProps: {},
               ref: 'content'
-          }, [this.$scopedSlots.default(this.value)])]);
+          }, [this.$scopedSlots.default(this.$data)])]);
       },
       data: function data() {
           return {
+              isOverTop: false,
+              isOverBottom: false,
+              isOverToping: false,
+              isOverBottoming: false,
               animateValue: { top: 0 },
               currentClientY: 0,
               scrollClientY: 0
@@ -20593,9 +20597,10 @@
           this.dom_content = this.$refs['content'];
           /* 初始化滚动事件 */
           this.dom_container.addEventListener('mousedown', this.onmousedown);
-          this.dom_container.addEventListener('mousemove', underscore.throttle(this.onmousemove, 300));
+          // this.dom_container.addEventListener('mousemove', _.throttle(this.onmousemove, 300))
           this.dom_container.addEventListener('mousemove', this.onmousemove);
           this.dom_container.addEventListener('mouseup', this.onmouseup);
+          this.dom_container.addEventListener('mouseleave', this.onmouseup);
           // debugger
       },
 
@@ -20611,6 +20616,19 @@
                   console.log("movetop", this.$data.scrollClientY);
                   this.$data.currentClientY = e.clientY;
                   // console.log('move')
+                  // console.log("this.dom_content.offsetTop", this.dom_content.offsetTop)
+                  // console.log("this.dom_content.offsetHeight", this.dom_content.offsetHeight)
+                  // console.log("this.dom_content.scrollHeight", this.dom_content.scrollHeight)
+                  /* 判断下拉到上头了 */
+                  if (this.$data.scrollClientY > 0) {
+                      /* 撤回去，使用动画效果 */
+                      this.$data.isOverToping = true;
+                  }
+
+                  /* 判断到底了，回撤回去 */
+                  if (this.dom_content.offsetTop + this.dom_content.offsetHeight + Math.abs(this.scrollClientY) > this.dom_content.scrollHeight) {
+                      this.$data.isOverBottoming = true;
+                  }
               }
           },
           onmouseup: function onmouseup(e) {
@@ -20619,8 +20637,38 @@
               /* 判断下拉到上头了 */
               if (this.$data.scrollClientY > 0) {
                   /* 撤回去，使用动画效果 */
+                  this.$data.isOverTop = true;
+                  this.$data.isOverToping = false;
                   this.setToTop();
               }
+
+              /* 判断到底了，回撤回去 */
+              if (this.dom_content.offsetTop + this.dom_content.offsetHeight + Math.abs(this.scrollClientY) > this.dom_content.scrollHeight) {
+                  console.log("到底了");
+                  this.$data.isOverBottom = true;
+                  this.$data.isOverBottoming = false;
+                  this.setToBottom();
+              }
+          },
+          setToBottom: function setToBottom() {
+              var self = this;
+              var _scrollClientY = this.dom_content.scrollHeight - this.dom_content.offsetTop - this.dom_content.offsetHeight;
+              // console.log("newv", newv)
+              var coords = { x: this.$data.scrollClientY // Start at (0, 0)
+              };var tween = new TWEEN.Tween(coords) // Create a new tween that modifies 'coords'.
+              .to({ x: -_scrollClientY }, 500) // Move to (300, 200) in 1 second.
+              .easing(TWEEN.Easing.Quadratic.Out) // Use an easing function to make the animation smooth.
+              .onUpdate(function () {
+                  // Called after tween.js updates 'coords'.
+                  // Move 'box' to the position described by 'coords' with a CSS translation.
+                  // box.style.setProperty('transform', 'translate(' + coords.x + 'px, ' + coords.y + 'px)');
+                  // console.log('update', coords)
+                  // this.$data.scrollClientY=
+                  self.$data.scrollClientY = coords.x;
+              }).onComplete(function () {
+                  self.$data.scrollClientY = -_scrollClientY;
+                  self.$data.isOverBottom = false;
+              }).start(); // Start the tween immediately.
           },
           setToTop: function setToTop() {
               var self = this;
@@ -20638,6 +20686,7 @@
                   self.$data.scrollClientY = coords.x;
               }).onComplete(function () {
                   self.$data.scrollClientY = 0;
+                  self.$data.isOverTop = false;
               }).start(); // Start the tween immediately.
           }
       },
@@ -20655,22 +20704,21 @@
 
   Vue.use(ScrollView);
   var App = { render: function render() {
-      var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('t-scroll-view', { scopedSlots: _vm._u([{ key: "default", fn: function fn(fuck) {
-            return [_vm._v(" fuck: " + _vm._s(fuck) + " "), _vm._l(200, function (n) {
+      var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', [_c('button', { on: { "click": _vm.add } }, [_vm._v("add")]), _vm._v(" "), _c('t-scroll-view', { scopedSlots: _vm._u([{ key: "default", fn: function fn(scrolldata) {
+            return [_vm._v(" scrolldata: " + _vm._s(scrolldata) + " "), _c('div', { directives: [{ name: "show", rawName: "v-show", value: scrolldata.isOverToping, expression: "scrolldata.isOverToping" }] }, [_vm._v("拉取加载数据")]), _vm._v(" "), _c('div', { directives: [{ name: "show", rawName: "v-show", value: scrolldata.isOverTop, expression: "scrolldata.isOverTop" }] }, [_vm._v("加载数据ing")]), _vm._v(" "), _vm._l(_vm.lists, function (n) {
               return _c('div', [_vm._v(_vm._s(n))]);
-            })];
-          } }]) }), _vm._v(" "), _c('button', { on: { "click": _vm.add } }, [_vm._v("add")])], 1);
+            }), _vm._v(" scrolldata: " + _vm._s(scrolldata) + " "), _c('div', { directives: [{ name: "show", rawName: "v-show", value: scrolldata.isOverBottoming, expression: "scrolldata.isOverBottoming" }] }, [_vm._v("拉取加载数据")]), _vm._v(" "), _c('div', { directives: [{ name: "show", rawName: "v-show", value: scrolldata.isOverBottom, expression: "scrolldata.isOverBottom" }] }, [_vm._v("加载数据ing")])];
+          } }]) })], 1);
     }, staticRenderFns: [],
     data: function data() {
       return {
-        value: { x: 0, y: 1 }
+        lists: 100
       };
     },
 
     methods: {
       add: function add() {
-        this.$data.value.x += 100;
-        this.$data.value.y += 100;
+        this.$data.lists += 10;
       }
     },
     components: {}

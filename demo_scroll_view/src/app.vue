@@ -1,12 +1,17 @@
 <template>
   <div>
+    <button @click="add">add</button>
     <t-scroll-view>
-      <template scope="fuck">
-        fuck: {{fuck}}
-        <div v-for="n in 200">{{n}}</div>
+      <template scope="scrolldata">
+        scrolldata: {{scrolldata}}
+        <div v-show="scrolldata.isOverToping">拉取加载数据</div>
+        <div v-show="scrolldata.isOverTop">加载数据ing</div>
+        <div v-for="n in lists">{{n}}</div>
+        scrolldata: {{scrolldata}}
+        <div v-show="scrolldata.isOverBottoming">拉取加载数据</div>
+        <div v-show="scrolldata.isOverBottom">加载数据ing</div>
       </template>
     </t-scroll-view>
-    <button @click="add">add</button>
   </div>
 </template>
 <script>
@@ -16,13 +21,12 @@ Vue.use(ScrollView);
 export default {
   data() {
     return {
-      value: { x: 0, y: 1 }
+      lists: 100
     };
   },
   methods: {
     add() {
-      this.$data.value.x += 100;
-      this.$data.value.y += 100;
+      this.$data.lists += 10;
     }
   },
   components: {}
