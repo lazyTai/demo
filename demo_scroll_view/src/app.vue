@@ -1,6 +1,11 @@
 <template>
   <div>
-    <t-scroll-view  />
+    <t-scroll-view>
+      <template scope="fuck">
+        fuck: {{fuck}}
+        <div v-for="n in 200">{{n}}</div>
+      </template>
+    </t-scroll-view>
     <button @click="add">add</button>
   </div>
 </template>
