@@ -78,9 +78,6 @@ config.plugins.push(new webpack.optimize.UglifyJsPlugin({
     sourceMap: false,
     mangle: true,
 }))
-config.plugins.push(new webpack.DefinePlugin({
-    "process.env.NODE_ENV": 'production'
-}))
 config.plugins.push(baseConfig.extractLess)
 config.plugins.push(baseConfig.extractCss)
 
