@@ -9,7 +9,7 @@ function render() {
         , document.getElementById('root'))
 }
 
-
+render()
 if (module.hot) {
     render()
     module.hot.accept();
