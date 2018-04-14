@@ -2,7 +2,7 @@
   "name": "REACT-CANVAS-DEMO",
   "version": "1.0.0",
   "description":"REACT-CANVAS-DEMO",
-  "main": "index.js",
+  "main": "./react-canvas1/src/app.js",
   "scripts": {
     "dev": "node ./build/server.dev.js ",
     "build": "set NODE_ENV=production &&webpack --config ./build/webpack.build.js --progress"
