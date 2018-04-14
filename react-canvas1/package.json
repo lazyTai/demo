@@ -1,7 +1,7 @@
 {
   "name": "REACT-CANVAS-DEMO",
   "version": "1.0.0",
-  "description":"REACT-CANVAS-DEMO",
+  "description": "REACT-CANVAS-DEMO",
   "main": "index.js",
   "scripts": {
     "dev": "node ./build/server.dev.js ",
@@ -23,9 +23,11 @@
   "dependencies": {
     "axios": "^0.18.0",
     "dva": "^2.1.0",
+    "konva": "^2.0.2",
     "lodash": "^4.17.5",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-konva": "^1.7.2",
     "react-loadable": "^5.3.1",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
