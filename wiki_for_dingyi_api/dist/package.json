@@ -1,6 +1,7 @@
 {
   "scripts":{
-    "serve":"gitbook serve&&gitbook build&&cp -r ./_book  ./dist"
+    "serve":"gitbook serve",
+    "build":"gitbook build"
   },
   "devDependencies": {
     "gitbook-plugin-search-plus": "^1.0.4-alpha-3"
