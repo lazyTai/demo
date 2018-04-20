@@ -1,0 +1,10 @@
+{
+    "title": "api 文档",
+    "generator": "site",
+    "plugins": [
+        "-lunr",
+        "-search",
+        "search-plus",
+        "-toggle-chapters"
+    ]
+}

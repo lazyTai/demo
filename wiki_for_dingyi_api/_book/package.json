@@ -1,0 +1,9 @@
+{
+  "scripts":{
+    "serve":"gitbook serve",
+    "build":"gitbook build"
+  },
+  "devDependencies": {
+    "gitbook-plugin-search-plus": "^1.0.4-alpha-3"
+  }
+}
