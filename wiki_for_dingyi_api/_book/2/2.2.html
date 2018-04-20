@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>1.5.帐户设置界面 – 更新密码 · api 文档</title>
+        <title>2.2. 更新店面界面 · api 文档</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -112,9 +112,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="1.1.html">
+        <li class="chapter " data-level="1.2.1" data-path="../1/1.1.html">
             
-                <a href="1.1.html#1.1">
+                <a href="../1/1.1.html#1.1">
             
                     
                     1.1 登入界面
@@ -144,9 +144,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="1.2.html">
+        <li class="chapter " data-level="1.2.2" data-path="../1/1.2.html">
             
-                <a href="1.2.html">
+                <a href="../1/1.2.html">
             
                     
                     1.2.注册界面
@@ -202,9 +202,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="1.3.html">
+        <li class="chapter " data-level="1.2.3" data-path="../1/1.3.html">
             
-                <a href="1.3.html">
+                <a href="../1/1.3.html">
             
                     
                     1.3. 帐户设置界面 – 基本资料
@@ -234,9 +234,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="1.4.html">
+        <li class="chapter " data-level="1.2.4" data-path="../1/1.4.html">
             
-                <a href="1.4.html">
+                <a href="../1/1.4.html">
             
                     
                     1.4. 帐户设置界面 – 手机号码
@@ -266,9 +266,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.5" data-path="1.5.html">
+        <li class="chapter " data-level="1.2.5" data-path="../1/1.5.html">
             
-                <a href="1.5.html">
+                <a href="../1/1.5.html">
             
                     
                     1.5.帐户设置界面 – 更新密码
@@ -317,9 +317,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../2/2.1.html">
+        <li class="chapter " data-level="1.3.1" data-path="2.1.html">
             
-                <a href="../2/2.1.html">
+                <a href="2.1.html">
             
                     
                     2.1. Add Shop UI
@@ -375,9 +375,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../2/2.2.html">
+        <li class="chapter active" data-level="1.3.2" data-path="2.2.html">
             
-                <a href="../2/2.2.html">
+                <a href="2.2.html">
             
                     
                     2.2. 更新店面界面
@@ -407,9 +407,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../2/2.3.html">
+        <li class="chapter " data-level="1.3.3" data-path="2.3.html">
             
-                <a href="../2/2.3.html">
+                <a href="2.3.html">
             
                     
                     2.3. Shop Listing UI
@@ -596,7 +596,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >1.5.帐户设置界面 – 更新密码</a>
+        <a href=".." >2.2. 更新店面界面</a>
     </h1>
 </div>
 
@@ -611,23 +611,33 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="15&#x5E10;&#x6237;&#x8BBE;&#x7F6E;&#x754C;&#x9762;-&#x2013;-&#x66F4;&#x65B0;&#x5BC6;&#x7801;">1.5.&#x5E10;&#x6237;&#x8BBE;&#x7F6E;&#x754C;&#x9762; &#x2013; &#x66F4;&#x65B0;&#x5BC6;&#x7801;</h1>
-<p><img src="2018-04-20-11-59-18.png" alt=""></p>
-<h2 id="151&#x66F4;&#x65B0;&#x5BC6;&#x7801;">1.5.1.&#x66F4;&#x65B0;&#x5BC6;&#x7801;</h2>
+                                <h1 id="22&#x66F4;&#x65B0;&#x5E97;&#x9762;&#x754C;&#x9762;">2.2.&#x66F4;&#x65B0;&#x5E97;&#x9762;&#x754C;&#x9762;</h1>
+<p><img src="2018-04-20-13-21-56.png" alt=""></p>
+<h2 id="221&#x53D6;&#x5F97;&#x5E97;&#x9762;&#x5C5E;&#x6027;">2.2.1.&#x53D6;&#x5F97;&#x5E97;&#x9762;&#x5C5E;&#x6027;</h2>
 <pre><code>
-Request: PUT /users/password
+Request: GET /shops/{id}
+
+Response:
 {
-    &#x201C;oldPassword&#x201D;: &#x201C;123456&#x201D;,
-    &#x201C;newPassword&#x201D;: &#x201C;654321&#x201D;
+    &#x2026;shop &#x7269;&#x4EF6;&#x5C5E;&#x6027;
+}
+
+ResourceNotFoundException(&#x201C;Shop record not found.&#x201D;)  - 404, &#x627E;&#x4E0D;&#x5230;&#x5E97;&#x9762;&#x8BB0;&#x5F55;
+</code></pre><h2 id="222&#x66F4;&#x65B0;&#x5E97;&#x9762;&#x8BBE;&#x5B9A;">2.2.2.&#x66F4;&#x65B0;&#x5E97;&#x9762;&#x8BBE;&#x5B9A;</h2>
+<pre><code>Request: PUT /shops/{id}
+{
+    &#x201C;currencyId&#x201D;: 1, (1 for RMB)
+    &#x201C;description&#x201D;: &#x201C;test test test test&#x2026;&#x201D;
+&#x201C;isDefault&#x201D;: true
 }
 
 Response:
 {
-    &#x201C;result&#x201D;:&#x201D;ok&#x201D;
+    &#x2026;shop &#x7269;&#x4EF6;&#x5C5E;&#x6027;
 }
 
-ParameterException(&#x201C;Incorrect existing password.&#x201D;)  - 400, &#x73B0;&#x6709;&#x5BC6;&#x7801;&#x9519;&#x8BEF;
-ParameterException(&#x201C;Password must be at least 6 character long and contains both letter and number.&#x201D;)  - 400, &#x5BC6;&#x7801;&#x957F;&#x5EA6;&#x5FC5;&#x987B;&#x4E3A;6&#x4F4D;&#x4EE5;&#x4E0A;&#x53CA;&#x540C;&#x65F6;&#x5305;&#x542B;&#x6570;&#x5B57;&#x548C;&#x975E;&#x6570;&#x5B57;&#x5B57;&#x7B26;
+ResourceNotFoundException(&#x201C;Shop record not found.&#x201D;)  - 404, &#x627E;&#x4E0D;&#x5230;&#x5E97;&#x9762;&#x8BB0;&#x5F55;
+AuthorizationException(&#x201C;User not authorized to update shop ID - 12345.&#x201D;)  - 401, &#x7528;&#x6237;&#x6CA1;&#x6709;&#x6743;&#x9650;&#x66F4;&#x6539;&#x6B64;&#x5E97;&#x94FA;
 </code></pre>
                                 
                                 </section>
@@ -663,7 +673,7 @@ ParameterException(&#x201C;Password must be at least 6 character long and contai
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.5.帐户设置界面 – 更新密码","level":"1.2.5","depth":2,"next":{"title":"1.5.1.更新密码","level":"1.2.5.1","depth":3,"ref":"","articles":[]},"previous":{"title":"1.4.1. 更新手机","level":"1.2.4.1","depth":3,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-plus":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"api 文档","gitbook":"*"},"file":{"path":"1/1.5.md","mtime":"2018-04-20T04:00:55.882Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-20T05:31:23.031Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.2. 更新店面界面","level":"1.3.2","depth":2,"next":{"title":"2.2.1. 更新店面设定","level":"1.3.2.1","depth":3,"ref":"","articles":[]},"previous":{"title":"2.1.3. 开店","level":"1.3.1.3","depth":3,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-plus":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"api 文档","gitbook":"*"},"file":{"path":"2/2.2.md","mtime":"2018-04-20T05:22:19.878Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-20T05:39:16.081Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>1.2.注册界面 · api 文档</title>
+        <title>2.3. Shop Listing UI · api 文档</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -112,9 +112,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="1.1.html">
+        <li class="chapter " data-level="1.2.1" data-path="../1/1.1.html">
             
-                <a href="1.1.html#1.1">
+                <a href="../1/1.1.html#1.1">
             
                     
                     1.1 登入界面
@@ -144,9 +144,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="1.2.html">
+        <li class="chapter " data-level="1.2.2" data-path="../1/1.2.html">
             
-                <a href="1.2.html">
+                <a href="../1/1.2.html">
             
                     
                     1.2.注册界面
@@ -202,9 +202,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="1.3.html">
+        <li class="chapter " data-level="1.2.3" data-path="../1/1.3.html">
             
-                <a href="1.3.html">
+                <a href="../1/1.3.html">
             
                     
                     1.3. 帐户设置界面 – 基本资料
@@ -234,9 +234,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="1.4.html">
+        <li class="chapter " data-level="1.2.4" data-path="../1/1.4.html">
             
-                <a href="1.4.html">
+                <a href="../1/1.4.html">
             
                     
                     1.4. 帐户设置界面 – 手机号码
@@ -266,9 +266,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="1.5.html">
+        <li class="chapter " data-level="1.2.5" data-path="../1/1.5.html">
             
-                <a href="1.5.html">
+                <a href="../1/1.5.html">
             
                     
                     1.5.帐户设置界面 – 更新密码
@@ -317,9 +317,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../2/2.1.html">
+        <li class="chapter " data-level="1.3.1" data-path="2.1.html">
             
-                <a href="../2/2.1.html">
+                <a href="2.1.html">
             
                     
                     2.1. Add Shop UI
@@ -375,9 +375,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../2/2.2.html">
+        <li class="chapter " data-level="1.3.2" data-path="2.2.html">
             
-                <a href="../2/2.2.html">
+                <a href="2.2.html">
             
                     
                     2.2. 更新店面界面
@@ -407,9 +407,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" data-path="../2/2.3.html">
+        <li class="chapter active" data-level="1.3.3" data-path="2.3.html">
             
-                <a href="../2/2.3.html">
+                <a href="2.3.html">
             
                     
                     2.3. Shop Listing UI
@@ -596,7 +596,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >1.2.注册界面</a>
+        <a href=".." >2.3. Shop Listing UI</a>
     </h1>
 </div>
 
@@ -611,52 +611,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="12&#x6CE8;&#x518C;&#x754C;&#x9762;">1.2.&#x6CE8;&#x518C;&#x754C;&#x9762;</h1>
-<p><img src="2018-04-20-11-43-26.png" alt=""></p>
-<h2 id="121&#x67E5;&#x8BE2;&#x7528;&#x6237;&#x540D;&#x91CD;&#x590D;">1.2.1.&#x67E5;&#x8BE2;&#x7528;&#x6237;&#x540D;&#x91CD;&#x590D;</h2>
-<pre><code>Request: Get /users/name-check
-{
-    &#x201C;username&#x201D;: &#x201C;peter&#x201D;
-}
+                                <h1 id="23&#x5E97;&#x9762;&#x5217;&#x8868;">2.3.&#x5E97;&#x9762;&#x5217;&#x8868;</h1>
+<p><img src="2018-04-20-13-22-30.png" alt=""></p>
+<h2 id="231&#x5E10;&#x6237;&#x5E97;&#x9762;&#x5217;&#x8868;">2.3.1.&#x5E10;&#x6237;&#x5E97;&#x9762;&#x5217;&#x8868;</h2>
+<pre><code>Request: GET /shops?offset=5&amp;limit=10
 
 Response:
 {
-    &#x201C;exist&quot;: true
+&quot;result&quot;: [ {
+        &#x201C;id&#x201D;:12345,
+        &#x201C;shopName&#x201D;:&#x201D;teststore&#x201D;,
+        &#x201C;shopStatusName&#x201D;:&#x201D;&#x6B63;&#x5E38;&#x201D;,
+        &#x201C;designCount&#x201D;:&#x201D;9/38&#x201D;,
+&#x201C;orderCount&#x201D;:&#x201D;82/366&#x201D;
+    } ],
+&quot;paging&quot;: {
+        &quot;total&quot;: 3,       &#x8868;&#x9879;&#x76EE;&#x603B;&#x6570;
+        &quot;offset&quot;: 5,      &#x8DF3;&#x8FC7;&#x9879;&#x76EE;&#x6570;
+        &quot;limit&quot;: 10       &#x9650;&#x5236;&#x9879;&#x76EE;&#x6570;
+ }
 }
-</code></pre><h2 id="122&#x8BF7;&#x6C42;&#x77ED;&#x4FE1;&#x8BA4;&#x8BC1;&#x7801;">1.2.2.&#x8BF7;&#x6C42;&#x77ED;&#x4FE1;&#x8BA4;&#x8BC1;&#x7801;</h2>
-<pre><code>Request: POST /users/sms-verification
-{
-    &#x201C;mobile&#x201D;: &#x201C;13172008872&#x201D;
-}
-
-Response:
-{
-    &#x201C;sent&quot;: true
-}
-
-ParameterException(&#x201C;Mobile number already existed.&#x201D;)  - 400, &#x624B;&#x673A;&#x53F7;&#x7801;&#x5DF2;&#x88AB;&#x4F7F;&#x7528;
-ParameterException(&#x201C;Invalid mobile number.&#x201D;)  - 400, &#x624B;&#x673A;&#x53F7;&#x7801;&#x65E0;&#x6548;
-SMSException(&#x201C;SMS cannot be sent.&#x201D;)  - 500, &#x65E0;&#x6CD5;&#x53D1;&#x51FA;&#x77ED;&#x4FE1;
-</code></pre><h2 id="123&#x7528;&#x6237;&#x6CE8;&#x518C;">1.2.3.&#x7528;&#x6237;&#x6CE8;&#x518C;</h2>
-<pre><code>Request: POST /users
-{
-    &#x201C;username&#x201D;: &#x201C;peter&#x201D;,
-    &#x201C;mobile&#x201D;: &#x201C;13172008872&#x201D;,
-    &#x201C;smsVerificationCode&#x201D;: &#x201C;12321&#x201D;,
-    &#x201C;password&#x201D;: &#x201C;dy201817&#x201D;
-}
-
-Response:
-{
-    &#x201C;token&quot;: &#x201C;sjhkrsgkhsdk4565hjy6jh&#x201D;
-}
-
-ParameterException(&#x201C;Username must be at least 2 charactres long and contains at least one non-numeric character.&#x201D;)  - 400, &#x7528;&#x6237;&#x540D;&#x957F;&#x5EA6;&#x4E0D;&#x5F97;&#x5C11;&#x4E8E;2&#x5B57;&#x53CA;&#x5FC5;&#x987B;&#x5305;&#x542B;&#x6700;&#x5C11;&#x4E00;&#x4E2A;&#x975E;&#x6570;&#x5B57;&#x5B57;&#x7B26;
-ParameterException(&#x201C;Username already existed.&#x201D;)  - 400, &#x7528;&#x6237;&#x540D;&#x5DF2;&#x88AB;&#x4F7F;&#x7528;
-ParameterException(&#x201C;Invalid mobile number.&#x201D;)  - 400, &#x624B;&#x673A;&#x53F7;&#x7801;&#x65E0;&#x6548;
-ParameterException(&#x201C;Mobile number already existed.&#x201D;)  - 400, &#x624B;&#x673A;&#x53F7;&#x7801;&#x5DF2;&#x88AB;&#x4F7F;&#x7528;
-ParameterException(&#x201C;Invalid SMS verification code.&#x201D;)  - 400, &#x77ED;&#x4FE1;&#x8BA4;&#x8BC1;&#x7801;&#x9519;&#x8BEF;&#x6216;&#x8FC7;&#x671F;&#xFF08;&#x5341;&#x5206;&#x949F;&#xFF09;
-ParameterException(&#x201C;Password must be at least 6 character long and contains both letter and number.&#x201D;)  - 400, &#x5BC6;&#x7801;&#x957F;&#x5EA6;&#x5FC5;&#x987B;&#x4E3A;6&#x4F4D;&#x4EE5;&#x4E0A;&#x53CA;&#x540C;&#x65F6;&#x5305;&#x542B;&#x6570;&#x5B57;&#x548C;&#x975E;&#x6570;&#x5B57;&#x5B57;&#x7B26;
 </code></pre>
                                 
                                 </section>
@@ -692,7 +666,7 @@ ParameterException(&#x201C;Password must be at least 6 character long and contai
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2.注册界面","level":"1.2.2","depth":2,"next":{"title":"1.2.1.查询用户名重复","level":"1.2.2.1","depth":3,"ref":"","articles":[]},"previous":{"title":"1.1.1. 登入","level":"1.2.1.1","depth":3,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-plus":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"api 文档","gitbook":"*"},"file":{"path":"1/1.2.md","mtime":"2018-04-20T03:55:41.448Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-20T05:31:23.031Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.3. Shop Listing UI","level":"1.3.3","depth":2,"next":{"title":"2.3.1. 帐户店面列表","level":"1.3.3.1","depth":3,"ref":"","articles":[]},"previous":{"title":"2.2.1. 更新店面设定","level":"1.3.2.1","depth":3,"ref":"","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-plus","-toggle-chapters"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-plus":{},"highlight":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"api 文档","gitbook":"*"},"file":{"path":"2/2.3.md","mtime":"2018-04-20T05:22:44.120Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-04-20T05:39:16.081Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
