@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "gitbook-plugin-search-plus": "^1.0.4-alpha-3"
+  }
+}
