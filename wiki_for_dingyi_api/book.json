@@ -1,10 +1,17 @@
 {
     "title": "api 文档",
     "generator": "site",
+    "root": ".",
     "plugins": [
         "-lunr",
         "-search",
         "search-plus",
-        "-toggle-chapters"
-    ]
+        "-toggle-chapters",
+        "simple-page-toc",
+        "anchors",
+        "-expandable-chapters-small",
+        "-theme-api"
+    ],
+    "pluginsConfig": {
+    }
 }

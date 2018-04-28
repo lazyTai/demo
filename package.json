@@ -1,7 +1,7 @@
 {
   "name": "REACT-CANVAS-DEMO",
   "version": "1.0.0",
-  "description":"REACT-CANVAS-DEMO",
+  "description": "REACT-CANVAS-DEMO",
   "main": "./react-canvas1/src/app.js",
   "scripts": {
     "dev": "node ./build/server.dev.js ",
@@ -52,6 +52,7 @@
     "immutable": "^3.8.2",
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
+    "normalizr": "^3.2.4",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.3",
     "postcss-modules": "^1.1.0",

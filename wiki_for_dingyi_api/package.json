@@ -1,9 +1,13 @@
 {
-  "scripts":{
-    "serve":"gitbook serve",
-    "build":"gitbook build"
+  "scripts": {
+    "serve": "gitbook serve",
+    "build": "gitbook build"
   },
   "devDependencies": {
-    "gitbook-plugin-search-plus": "^1.0.4-alpha-3"
+    "gitbook-plugin-anchors": "^0.7.1",
+    "gitbook-plugin-expandable-chapters-small": "^0.1.7",
+    "gitbook-plugin-search-plus": "^1.0.4-alpha-3",
+    "gitbook-plugin-simple-page-toc": "^0.1.2",
+    "gitbook-plugin-theme-api": "^1.1.2"
   }
 }
