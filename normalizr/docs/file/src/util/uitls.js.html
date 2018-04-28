@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/util/uitls.js | My Library</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="this is awesome library"><meta property="og:type" content="website"><meta property="og:url" content="http://my-library.org"><meta property="og:site_name" content="My Library"><meta property="og:title" content="My Library"><meta property="og:image" content="http://my-library.org/logo.png"><meta property="og:description" content="this is awesome library"><meta property="og:author" content="https://twitter.com/foo"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="My Library"><meta property="twitter:description" content="this is awesome library"><meta property="twitter:image" content="http://my-library.org/logo.png"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./" style="display: flex; align-items: center;"><img src="./image/brand_logo.png" style="width:34px;"></a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/foo/bar"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/index.js~App.html">App</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-app">app</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#util">util</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-adapter_size">adapter_size</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-array_distinct_insert_item">array_distinct_insert_item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-array_remove_obj">array_remove_obj</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-array_update_item">array_update_item</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-find_item_in_array_by_id">find_item_in_array_by_id</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get_history">get_history</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-get_state">get_state</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isImage">isImage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-isMatch">isMatch</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-set_history">set_history</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-set_state">set_state</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-set_state_reducer">set_state_reducer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-uuid">uuid</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-exp_email">exp_email</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-exp_is_internet">exp_is_internet</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-exp_length6">exp_length6</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-exp_not_null">exp_not_null</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-exp_num">exp_num</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-exp_phone">exp_phone</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/util/uitls.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {
+    TYPE_SHIRT,
+    TYPE_PHONE,
+    TYPE_PILLOW,
+    TYPE_GLASS,
+    TYPE_QUILT,
+    TYPE_MINISKIRT,
+    ORIGINAL_PRODUCT_WIDTH,
+    ORIGINAL_PRODUCT_HEIGHT
+} from &apos;../constants&apos;
+import _ from &apos;lodash&apos;
+
+
+import {effects} from &apos;dva/saga&apos;
+// console.log(effects.put)
+export function isImage(file) {
+    var ImgType = [&quot;gif&quot;, &quot;jpeg&quot;, &quot;jpg&quot;, &quot;bmp&quot;, &quot;png&quot;];//&#x56FE;&#x7247;
+    if (!RegExp(&quot;\.(&quot; + ImgType.join(&quot;|&quot;) + &quot;)$&quot;, &quot;i&quot;).test(file.name.toLowerCase())) {
+        console.log(&quot;&#x4E0D;&#x662F;&#x6307;&#x5B9A;&#x56FE;&#x7247;&#x683C;&#x5F0F;,&#x91CD;&#x65B0;&#x9009;&#x62E9;&quot;);
+        return false;
+    } else {
+        return true
+    }
+}
+
+
+export function array_remove_obj(_array, _obj) {
+    var _index = null;
+    _array.map((_item, index) =&gt; {
+        if (_item.id == _obj) {
+            _index = index
+        }
+    })
+    _array.splice(_index, 1)
+    return _array
+}
+
+export function array_distinct_insert_item(_array, item) {
+    var _isIn = false;
+    _array.map((_item) =&gt; {
+        if (_item.id == item) {
+            _isIn = true
+        }
+    })
+    if (!_isIn) {
+        _array.push(item)
+    }
+    return _array
+}
+
+export function array_update_item(_array, item) {
+    var _isIn = false;
+    var _index = null;
+    _array.map((_item, index) =&gt; {
+        if (_item.id == item) {
+            _isIn = true;
+            _index = index
+        }
+    })
+    if (!_isIn) {
+        _array[_index] = item
+    }
+    return _array
+}
+
+export function adapter_size(imgDom) {
+    var _width = imgDom.width;
+    var _height = imgDom.height
+    var diagonal_big = Math.sqrt(ORIGINAL_PRODUCT_WIDTH * ORIGINAL_PRODUCT_WIDTH + ORIGINAL_PRODUCT_HEIGHT * ORIGINAL_PRODUCT_HEIGHT)
+    var diagonal_small = Math.sqrt(_width * _width + _height * _height)
+    var ratio = diagonal_small / diagonal_big;
+    return {w: ratio * _width / 10, h: _height * ratio / 10, ratio: ratio}
+
+}
+
+function S4() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);
+}
+
+export function uuid() {
+    return (S4() + S4() + &quot;-&quot; + S4() + &quot;-&quot; + S4() + &quot;-&quot; + S4() + &quot;-&quot; + S4() + S4() + S4());
+}
+
+export function isMatch(myreg, str) {
+    //&#x58F0;&#x660E;&#x90AE;&#x7BB1;&#x6B63;&#x5219;
+    //&#x5BF9;&#x8F93;&#x5165;&#x7684;&#x503C;&#x8FDB;&#x884C;&#x5224;&#x65AD;
+    return myreg.test(str);
+}
+
+export function set_state_reducer(state, actions) {
+    var {payload} = actions
+    require(&apos;lodash&apos;).map(payload, (item, key) =&gt; {
+        state[key] = item
+    })
+    return {...state}
+}
+
+export function set_state(obj) {
+    return (name_space) =&gt; {
+        return effects.put({
+            type: `${name_space}/set_state`,
+            payload: obj
+        })
+    }
+}
+
+export function set_history(history) {
+    window.__history__ = history;
+    return
+}
+
+export function get_history() {
+    return window.__history__;
+}
+
+export function * get_state(namespace) {
+    return yield effects.select(state =&gt; state[namespace]);
+}
+
+export function find_item_in_array_by_id(key,id,array){
+    var _obj={};
+    _.each(array,(item)=&gt;{
+        if(item[key]==id){
+            _obj=item
+            return false;
+        }
+    })
+    return _obj
+}</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.0.4)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
