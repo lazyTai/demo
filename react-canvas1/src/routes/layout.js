@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import {Route, Switch, } from 'dva/router'
+import {Route, Switch,} from 'dva/router'
 import {Link} from 'react-router-dom'
 import Loadable from 'react-loadable';
 import Loading from '../components/Loading'
@@ -11,6 +11,14 @@ const PageBase = Loadable({
 });
 const PageDraw = Loadable({
     loader: () => import('./Drawing'),
+    loading: Loading
+});
+const PageFillImage = Loadable({
+    loader: () => import('./fillImage'),
+    loading: Loading
+});
+const MegerCanvas = Loadable({
+    loader: () => import('./megerCanvas'),
     loading: Loading
 });
 
@@ -24,11 +32,15 @@ class Layout extends React.Component {
                 <Link to={"/app/base"}>base</Link><br/>
 
                 <Link to={"/app/draw"}>draw</Link>
+                <Link to={"/app/fill-image"}>PageFillImage</Link>
+                <Link to={"/app/merger-canvas"}>merger-canvas</Link>
             </div>
-            <div style={{padding:30}}>
+            <div style={{padding: 30}}>
                 <Switch>
                     <Route path={"/app/base"} component={PageBase}></Route>
                     <Route path={"/app/draw"} component={PageDraw}></Route>
+                    <Route path={"/app/fill-image"} component={PageFillImage}></Route>
+                    <Route path={"/app/merger-canvas"} component={MegerCanvas}></Route>
                 </Switch>
             </div>
         </div>

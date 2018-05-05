@@ -21,7 +21,7 @@ const config = {
     output: {
         path: path.resolve('./dist/'),
         filename: '[name]/[name].js',
-        publicPath: './',
+        publicPath: '/',
         // 添加 chunkFilename
         chunkFilename: '[name].[chunkhash:5].chunk.js',
     },
