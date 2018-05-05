@@ -31,9 +31,9 @@ class Layout extends React.Component {
             <div>
                 <Link to={"/app/base"}>base</Link><br/>
 
-                <Link to={"/app/draw"}>draw</Link>
-                <Link to={"/app/fill-image"}>PageFillImage</Link>
-                <Link to={"/app/merger-canvas"}>merger-canvas</Link>
+                <Link to={"/app/draw"}>draw</Link><br/>
+                <Link to={"/app/fill-image"}>PageFillImage</Link><br/>
+                <Link to={"/app/merger-canvas"}>merger-canvas</Link><br/>
             </div>
             <div style={{padding: 30}}>
                 <Switch>
