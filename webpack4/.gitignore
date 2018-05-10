@@ -1,0 +1,43 @@
+<<<<<<< HEAD
+.idea
+.vscode
+composer.lock
+*.log
+thinkphp
+node_modules
+/node_modules
+node_modules/
+/node_modules/
+/runtime
+runtime/
+/runtime/
+./dist/stats.html
+dist/stats.html
+=======
+# Xcode
+#
+build/
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata
+*.xccheckout
+*.moved-aside
+DerivedData
+*.hmap
+*.ipa
+*.xcuserstate
+
+# CocoaPods
+#
+# We recommend against adding the Pods directory to your .gitignore. However
+# you should judge for yourself, the pros and cons are mentioned at:
+# http://guides.cocoapods.org/using/using-cocoapods.html#should-i-ignore-the-pods-directory-in-source-control
+#
+#Pods/
+>>>>>>> bc5f69fdf7c0ea39d15595c7a50fb6cdae866811
