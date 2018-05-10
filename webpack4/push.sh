@@ -1,5 +1,6 @@
 git config --global credential.helper store
 git pull
+git add build/
 git add .
 git commit -a -m 'git auto commit'
 git log -1
