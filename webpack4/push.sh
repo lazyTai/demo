@@ -4,7 +4,7 @@ git add .
 git commit -a -m 'git auto commit'
 git log -1
 git remove add origin https://github.com/lazyTai/demo.git
-git push -u origin master
+#git push -u origin master
 git push
 git remote -v
 git status
