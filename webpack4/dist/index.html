@@ -1,0 +1,31 @@
+Html Webpack Plugin:
+<pre>
+  Error: Child compilation failed:
+  Entry module not found: Error: Can't resolve '/root/demo/webpack4/build/src/in  dex.html' in '/root/demo/webpack4/build':
+  Error: Can't resolve '/root/demo/webpack4/build/src/index.html' in '/root/demo  /webpack4/build'
+  
+  - compiler.js:79 childCompiler.runAsChild
+    [webpack4]/[html-webpack-plugin]/lib/compiler.js:79:16
+  
+  - Compiler.js:242 compile
+    [webpack4]/[webpack]/lib/Compiler.js:242:11
+  
+  - Compiler.js:487 hooks.afterCompile.callAsync.err
+    [webpack4]/[webpack]/lib/Compiler.js:487:14
+  
+  
+  - Hook.js:35 AsyncSeriesHook.lazyCompileHook [as _callAsync]
+    [webpack4]/[tapable]/lib/Hook.js:35:21
+  
+  - Compiler.js:484 compilation.seal.err
+    [webpack4]/[webpack]/lib/Compiler.js:484:30
+  
+  
+  - Hook.js:35 AsyncSeriesHook.lazyCompileHook [as _callAsync]
+    [webpack4]/[tapable]/lib/Hook.js:35:21
+  
+  - Compilation.js:966 hooks.optimizeAssets.callAsync.err
+    [webpack4]/[webpack]/lib/Compilation.js:966:35
+  
+  
+</pre>
