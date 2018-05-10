@@ -1,1 +1,2 @@
-console.log("fuck2")
+
+console.log(name+"")
