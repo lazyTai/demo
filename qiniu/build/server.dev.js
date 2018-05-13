@@ -20,11 +20,11 @@ app.use(hotMiddleware)
 /* 设置静态目录 */
 app.use('/', express.static('./dist'));
 app.use('/index',function(req,res){
-    res.redirect(200, 'http://localhost:3000/index.html');
+    res.redirect(200, 'http://localhost:3001/index.html');
 });
 
 
 
-app.listen(3001, function () {
+app.listen(`3001`, function () {
     console.log("listent to 3001")
 })
