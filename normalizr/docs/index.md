@@ -4,10 +4,6 @@
 
 主要App component
 
-### `userSchema: Object`
-
-用来生成 数据的骨架，就是类！！？？ what is inside in schema <br/> ![schema](http://p7whtc26y.bkt.clouddn.com/18-4-28/31936984.jpg) <br/> 我们可以看到几个对象，对应我们需要什么，就用什么！！？
-
 ### `componentDidMount()`
 
 | Name | Type | Attribute | Description |

@@ -31,6 +31,7 @@
     
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/index.js~App.html">App</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-app">app</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-variable">V</span><span data-ice="name"><span><a href="variable/index.html#static-variable-array">array</a></span></span></li>
 <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#util">util</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-adapter_size">adapter_size</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-array_distinct_insert_item">array_distinct_insert_item</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-array_remove_obj">array_remove_obj</a></span></span></li>
@@ -56,9 +57,7 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/index.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;
-
-import {normalize, schema , arrayOf} from &quot;normalizr&quot;;
-
+import {normalize, schema, Array} from &apos;normalizr&apos;
 
 /**
  * react&#x7EC4;&#x4EF6; loading
@@ -68,21 +67,22 @@ import {normalize, schema , arrayOf} from &quot;normalizr&quot;;
  * @desc
  * &#x4E3B;&#x8981;App component
  * */
-class App extends React.Component{
+class App extends React.Component {
     componentDidMount() {
-        /**
-         * @type {Object} userSchema
-         * @desc
-         * &#x7528;&#x6765;&#x751F;&#x6210; &#x6570;&#x636E;&#x7684;&#x9AA8;&#x67B6;&#xFF0C;&#x5C31;&#x662F;&#x7C7B;&#xFF01;&#xFF01;&#xFF1F;&#xFF1F;
-         * what is inside in schema &lt;br/&gt;
-         * ![schema](http://p7whtc26y.bkt.clouddn.com/18-4-28/31936984.jpg) &lt;br/&gt;
-         * &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x51E0;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x5E94;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x4EC0;&#x4E48;&#xFF0C;&#x5C31;&#x7528;&#x4EC0;&#x4E48;&#xFF01;&#xFF01;&#xFF1F;
-         *
-         * */
-        this.userSchema =new schema.Entity(&apos;users&apos;);
-        debugger
+        const post = new schema.Entity(&quot;post&quot;, {id: &quot;id&quot;})
+        const author = new schema.Entity(&quot;author&quot;, {id: &quot;id&quot;})
+        const postComments = new schema.Entity(&quot;postComments&quot;, {id: &quot;id&quot;})
+
+        post.define({
+            author: author,
+            comments: [postComments]
+        })
+        postComments.define({author: author})
+        var result = normalize(require(&apos;./data&apos;).array, [post])
+        console.log(JSON.stringify(result))
     }
-    render(){
+
+    render() {
         return (
             &lt;div&gt;
                 1.this is how to use ~~~Schema~~~
@@ -91,7 +91,8 @@ class App extends React.Component{
     }
 
 }
-export  default  App</code></pre>
+
+export default App</code></pre>
 
 </div>
 

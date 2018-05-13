@@ -6,7 +6,7 @@ import routes from './router'
 var app = null;
 
 app = dva({
-    onAction: createLogger()
+    // onAction: createLogger()
 });
 // app = dva({});
 

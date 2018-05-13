@@ -1,19 +1,26 @@
 {
-  "coverage": "15.38%",
+  "coverage": "11.53%",
   "expectCount": 26,
-  "actualCount": 4,
+  "actualCount": 3,
   "files": {
     "src/app.js": {
       "expectCount": 2,
       "actualCount": 2,
       "undocumentLines": []
     },
-    "src/index.js": {
-      "expectCount": 4,
-      "actualCount": 2,
+    "src/data.js": {
+      "expectCount": 1,
+      "actualCount": 0,
       "undocumentLines": [
-        15,
-        28
+        1
+      ]
+    },
+    "src/index.js": {
+      "expectCount": 3,
+      "actualCount": 1,
+      "undocumentLines": [
+        13,
+        27
       ]
     },
     "src/util/regs.js": {

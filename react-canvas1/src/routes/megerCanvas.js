@@ -76,7 +76,7 @@ class MegerCanvas extends React.Component {
 
     componentDidMount() {
         var image = new Image();
-        image.src = "http://p7whtc26y.bkt.clouddn.com/18-4-30/62319414.jpg"
+        image.src = "http://p7whtc26y.bkt.clouddn.com/18-4-29/34552105.jpg"
         image.onload = () => {
             this.showImageO(image)
             var beautyW = image.width;

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Route, Switch,} from 'dva/router'
 import Konva from 'konva'
 import {Stage, Layer, Rect, Text} from 'react-konva';
+import megerCanvas2 from "./megerCanvas2";
 
 
 class fillImage extends React.Component {
@@ -12,10 +13,19 @@ class fillImage extends React.Component {
         this.state = {
             image: new window.Image(),
             diffX: 0,
-            diffY:0,
+            diffY: 0,
         }
+        this.state.image.setAttribute("crossOrigin",'Anonymous')
+        this.state.image.src = "http://p7whtc26y.bkt.clouddn.com/18-4-30/62319414.jpg";
+    }
 
-        this.state.image.src = "http://p7whtc26y.bkt.clouddn.com/18-4-30/62319414.jpg"
+    componentDidMount() {
+        var self = this;
+        this.state.image.onload = () => {
+            self.setState({
+                image: megerCanvas2(this.state.image)
+            })
+        }
     }
 
     render() {
@@ -38,6 +48,7 @@ class fillImage extends React.Component {
                             // fillPatternOffsetX={-100}
                             fillPatternOffsetX={this.state.diffX}
                             fillPatternOffsetY={this.state.diffY}
+                            fillPatternRepeat={"no-repeat"}
                             onMouseDown={(e) => {
                                 this.move = true;
                                 this.startX = e.evt.pageX
@@ -52,8 +63,8 @@ class fillImage extends React.Component {
                                     this.startX = e.evt.pageX;
                                     this.startY = e.evt.pageY
                                     this.setState({
-                                        diffX: this.state.diffX + (this.startX - this.oldX)*5,
-                                        diffY: this.state.diffY + (this.startY - this.oldY)*5
+                                        diffX: this.state.diffX + (this.startX - this.oldX) * 5,
+                                        diffY: this.state.diffY + (this.startY - this.oldY) * 5
                                     })
                                     this.oldY = e.evt.pageY
                                     this.oldX = e.evt.pageX

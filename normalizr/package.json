@@ -42,6 +42,7 @@
     "less": "^3.0.1",
     "less-loader": "^4.1.0",
     "lodash.merge": "^4.6.1",
+    "mockjs": "^1.0.1-beta3",
     "normalizr": "^3.2.4",
     "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.3",

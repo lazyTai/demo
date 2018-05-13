@@ -621,8 +621,39 @@
   {
     "__docId__": 51,
     "kind": "file",
+    "name": "src/data.js",
+    "content": "export const array = [\n    {\n        \"id\": 1,\n        \"title\": \"Blog Title\",\n        \"content\": \"Some really short blog content.  Actually the least interesting post ever\",\n        \"created_at\": \"2016-01-10T23:07:43.248Z\",\n        \"updated_at\": \"2016-01-10T23:07:43.248Z\",\n        \"author\": {\n            \"id\": 81,\n            \"name\": \"Mr Shelby\"\n        },\n        \"comments\": [\n            {\n                \"id\": 352,\n                \"content\": \"First!\",\n                \"author\": {\n                    \"id\": 41,\n                    \"name\": \"Foo Bar\"\n                }\n            }\n        ]\n    }\n]",
+    "static": true,
+    "longname": "D:/phpStudy/WWW/demo/normalizr/src/data.js",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 52,
+    "kind": "variable",
+    "name": "array",
+    "memberof": "src/data.js",
+    "static": true,
+    "longname": "src/data.js~array",
+    "access": "public",
+    "export": true,
+    "importPath": "dingyi/src/data.js",
+    "importStyle": "{array}",
+    "description": null,
+    "lineNumber": 1,
+    "undocument": true,
+    "type": {
+      "types": [
+        "undefined[]"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "file",
     "name": "src/index.js",
-    "content": "import React from 'react'\r\n\r\nimport {normalize, schema , arrayOf} from \"normalizr\";\r\n\r\n\r\n/**\r\n * react组件 loading\r\n * @author 刘明泰 <18819448261>\r\n * @example\r\n * <App />\r\n * @desc\r\n * 主要App component\r\n * */\r\nclass App extends React.Component{\r\n    componentDidMount() {\r\n        /**\r\n         * @type {Object} userSchema\r\n         * @desc\r\n         * 用来生成 数据的骨架，就是类！！？？\r\n         * what is inside in schema <br/>\r\n         * ![schema](http://p7whtc26y.bkt.clouddn.com/18-4-28/31936984.jpg) <br/>\r\n         * 我们可以看到几个对象，对应我们需要什么，就用什么！！？\r\n         *\r\n         * */\r\n        this.userSchema =new schema.Entity('users');\r\n        debugger\r\n    }\r\n    render(){\r\n        return (\r\n            <div>\r\n                1.this is how to use ~~~Schema~~~\r\n            </div>\r\n        )\r\n    }\r\n\r\n}\r\nexport  default  App",
+    "content": "import React from 'react'\r\nimport {normalize, schema, Array} from 'normalizr'\r\n\r\n/**\r\n * react组件 loading\r\n * @author 刘明泰 <18819448261>\r\n * @example\r\n * <App />\r\n * @desc\r\n * 主要App component\r\n * */\r\nclass App extends React.Component {\r\n    componentDidMount() {\r\n        const post = new schema.Entity(\"post\", {id: \"id\"})\r\n        const author = new schema.Entity(\"author\", {id: \"id\"})\r\n        const postComments = new schema.Entity(\"postComments\", {id: \"id\"})\r\n\r\n        post.define({\r\n            author: author,\r\n            comments: [postComments]\r\n        })\r\n        postComments.define({author: author})\r\n        var result = normalize(require('./data').array, [post])\r\n        console.log(JSON.stringify(result))\r\n    }\r\n\r\n    render() {\r\n        return (\r\n            <div>\r\n                1.this is how to use ~~~Schema~~~\r\n            </div>\r\n        )\r\n    }\r\n\r\n}\r\n\r\nexport default App",
     "static": true,
     "longname": "D:/phpStudy/WWW/demo/normalizr/src/index.js",
     "access": "public",
@@ -630,7 +661,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 52,
+    "__docId__": 54,
     "kind": "class",
     "name": "App",
     "memberof": "src/index.js",
@@ -644,7 +675,7 @@
     "examples": [
       "<App />"
     ],
-    "lineNumber": 14,
+    "lineNumber": 12,
     "unknown": [
       {
         "tagName": "@author",
@@ -657,7 +688,7 @@
     ]
   },
   {
-    "__docId__": 53,
+    "__docId__": 55,
     "kind": "method",
     "name": "componentDidMount",
     "memberof": "src/index.js~App",
@@ -667,32 +698,13 @@
     "longname": "src/index.js~App#componentDidMount",
     "access": "public",
     "description": null,
-    "lineNumber": 15,
+    "lineNumber": 13,
     "undocument": true,
     "params": [],
     "return": null
   },
   {
-    "__docId__": 54,
-    "kind": "member",
-    "name": "userSchema",
-    "memberof": "src/index.js~App",
-    "static": false,
-    "longname": "src/index.js~App#userSchema",
-    "access": "public",
-    "description": "用来生成 数据的骨架，就是类！！？？\nwhat is inside in schema <br/>\n![schema](http://p7whtc26y.bkt.clouddn.com/18-4-28/31936984.jpg) <br/>\n我们可以看到几个对象，对应我们需要什么，就用什么！！？",
-    "lineNumber": 25,
-    "type": {
-      "nullable": null,
-      "types": [
-        "Object"
-      ],
-      "spread": false,
-      "description": null
-    }
-  },
-  {
-    "__docId__": 55,
+    "__docId__": 56,
     "kind": "method",
     "name": "render",
     "memberof": "src/index.js~App",
@@ -702,7 +714,7 @@
     "longname": "src/index.js~App#render",
     "access": "public",
     "description": null,
-    "lineNumber": 28,
+    "lineNumber": 27,
     "undocument": true,
     "params": [],
     "return": {
@@ -712,7 +724,7 @@
     }
   },
   {
-    "__docId__": 56,
+    "__docId__": 57,
     "kind": "file",
     "name": "src/util/regs.js",
     "content": "export const exp_length6 = /^\\d{6,}$/\r\nexport const exp_not_null = /^\\S/\r\nexport const exp_email = /^([a-zA-Z0-9]+[_|\\_|\\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\\_|\\.]?)*[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$/\r\nexport const exp_num = /^[0-9]*$/\r\nexport const exp_phone = /^(\\(\\d{3,4}\\)|\\d{3,4}-)?\\d{7,8}$/\r\nexport  const exp_is_internet=/(http[s]?|ftp):\\/\\/[^\\/\\.]+?\\..+\\w$/i;\r\n// --正确格式为：XXXX-XXXXXXX，XXXX-XXXXXXXX，XXX-XXXXXXX，XXX-XXXXXXXX，XXXXXXX，XXXXXXXX。\r\n\r\n/*\r\n验证数字的正则表达式集\r\n验证数字：^[0-9]*$\r\n验证n位的数字：^\\d{n}$\r\n验证至少n位数字：^\\d{n,}$\r\n验证m-n位的数字：^\\d{m,n}$\r\n验证零和非零开头的数字：^(0|[1-9][0-9]*)$\r\n验证有两位小数的正实数：^[0-9]+(.[0-9]{2})?$\r\n验证有1-3位小数的正实数：^[0-9]+(.[0-9]{1,3})?$\r\n验证非零的正整数：^\\+?[1-9][0-9]*$\r\n验证非零的负整数：^\\-[1-9][0-9]*$\r\n验证非负整数（正整数 + 0） ^\\d+$\r\n验证非正整数（负整数 + 0） ^((-\\d+)|(0+))$\r\n验证长度为3的字符：^.{3}$\r\n验证由26个英文字母组成的字符串：^[A-Za-z]+$\r\n验证由26个大写英文字母组成的字符串：^[A-Z]+$\r\n验证由26个小写英文字母组成的字符串：^[a-z]+$\r\n验证由数字和26个英文字母组成的字符串：^[A-Za-z0-9]+$\r\n验证由数字、26个英文字母或者下划线组成的字符串：^\\w+$\r\n验证用户密码:^[a-zA-Z]\\w{5,17}$ 正确格式为：以字母开头，长度在6-18之间，只能包含字符、数字和下划线。\r\n验证是否含有 ^%&',;=?$\\\" 等字符：[^%&',;=?$\\x22]+\r\n验证汉字：^[\\u4e00-\\u9fa5],{0,}$\r\n验证Email地址：/^([a-zA-Z0-9]+[_|\\_|\\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\\_|\\.]?)*[a-zA-Z0-9]+\\.[a-zA-Z]{2,3}$/\r\n验证InternetURL：^http://([\\w-]+\\.)+[\\w-]+(/[\\w-./?%&=]*)?$ ；^[a-zA-z]+://(w+(-w+)*)(.(w+(-w+)*))*(?S*)?$\r\n验证电话号码：^(\\(\\d{3,4}\\)|\\d{3,4}-)?\\d{7,8}$：--正确格式为：XXXX-XXXXXXX，XXXX-XXXXXXXX，XXX-XXXXXXX，XXX-XXXXXXXX，XXXXXXX，XXXXXXXX。\r\n验证身份证号（15位或18位数字）：^\\d{15}|\\d{}18$\r\n验证一年的12个月：^(0?[1-9]|1[0-2])$ 正确格式为：“01”-“09”和“1”“12”\r\n验证一个月的31天：^((0?[1-9])|((1|2)[0-9])|30|31)$ 正确格式为：01、09和1、31。\r\n整数：^-?\\d+$\r\n不为空：/\\S/\r\n*/",
@@ -723,7 +735,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 57,
+    "__docId__": 58,
     "kind": "variable",
     "name": "exp_length6",
     "memberof": "src/util/regs.js",
@@ -743,7 +755,7 @@
     }
   },
   {
-    "__docId__": 58,
+    "__docId__": 59,
     "kind": "variable",
     "name": "exp_not_null",
     "memberof": "src/util/regs.js",
@@ -763,7 +775,7 @@
     }
   },
   {
-    "__docId__": 59,
+    "__docId__": 60,
     "kind": "variable",
     "name": "exp_email",
     "memberof": "src/util/regs.js",
@@ -783,7 +795,7 @@
     }
   },
   {
-    "__docId__": 60,
+    "__docId__": 61,
     "kind": "variable",
     "name": "exp_num",
     "memberof": "src/util/regs.js",
@@ -803,7 +815,7 @@
     }
   },
   {
-    "__docId__": 61,
+    "__docId__": 62,
     "kind": "variable",
     "name": "exp_phone",
     "memberof": "src/util/regs.js",
@@ -823,7 +835,7 @@
     }
   },
   {
-    "__docId__": 62,
+    "__docId__": 63,
     "kind": "variable",
     "name": "exp_is_internet",
     "memberof": "src/util/regs.js",
@@ -843,7 +855,7 @@
     }
   },
   {
-    "__docId__": 63,
+    "__docId__": 64,
     "kind": "file",
     "name": "src/util/uitls.js",
     "content": "import {\r\n    TYPE_SHIRT,\r\n    TYPE_PHONE,\r\n    TYPE_PILLOW,\r\n    TYPE_GLASS,\r\n    TYPE_QUILT,\r\n    TYPE_MINISKIRT,\r\n    ORIGINAL_PRODUCT_WIDTH,\r\n    ORIGINAL_PRODUCT_HEIGHT\r\n} from '../constants'\r\nimport _ from 'lodash'\r\n\r\n\r\nimport {effects} from 'dva/saga'\r\n// console.log(effects.put)\r\nexport function isImage(file) {\r\n    var ImgType = [\"gif\", \"jpeg\", \"jpg\", \"bmp\", \"png\"];//图片\r\n    if (!RegExp(\"\\.(\" + ImgType.join(\"|\") + \")$\", \"i\").test(file.name.toLowerCase())) {\r\n        console.log(\"不是指定图片格式,重新选择\");\r\n        return false;\r\n    } else {\r\n        return true\r\n    }\r\n}\r\n\r\n\r\nexport function array_remove_obj(_array, _obj) {\r\n    var _index = null;\r\n    _array.map((_item, index) => {\r\n        if (_item.id == _obj) {\r\n            _index = index\r\n        }\r\n    })\r\n    _array.splice(_index, 1)\r\n    return _array\r\n}\r\n\r\nexport function array_distinct_insert_item(_array, item) {\r\n    var _isIn = false;\r\n    _array.map((_item) => {\r\n        if (_item.id == item) {\r\n            _isIn = true\r\n        }\r\n    })\r\n    if (!_isIn) {\r\n        _array.push(item)\r\n    }\r\n    return _array\r\n}\r\n\r\nexport function array_update_item(_array, item) {\r\n    var _isIn = false;\r\n    var _index = null;\r\n    _array.map((_item, index) => {\r\n        if (_item.id == item) {\r\n            _isIn = true;\r\n            _index = index\r\n        }\r\n    })\r\n    if (!_isIn) {\r\n        _array[_index] = item\r\n    }\r\n    return _array\r\n}\r\n\r\nexport function adapter_size(imgDom) {\r\n    var _width = imgDom.width;\r\n    var _height = imgDom.height\r\n    var diagonal_big = Math.sqrt(ORIGINAL_PRODUCT_WIDTH * ORIGINAL_PRODUCT_WIDTH + ORIGINAL_PRODUCT_HEIGHT * ORIGINAL_PRODUCT_HEIGHT)\r\n    var diagonal_small = Math.sqrt(_width * _width + _height * _height)\r\n    var ratio = diagonal_small / diagonal_big;\r\n    return {w: ratio * _width / 10, h: _height * ratio / 10, ratio: ratio}\r\n\r\n}\r\n\r\nfunction S4() {\r\n    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1);\r\n}\r\n\r\nexport function uuid() {\r\n    return (S4() + S4() + \"-\" + S4() + \"-\" + S4() + \"-\" + S4() + \"-\" + S4() + S4() + S4());\r\n}\r\n\r\nexport function isMatch(myreg, str) {\r\n    //声明邮箱正则\r\n    //对输入的值进行判断\r\n    return myreg.test(str);\r\n}\r\n\r\nexport function set_state_reducer(state, actions) {\r\n    var {payload} = actions\r\n    require('lodash').map(payload, (item, key) => {\r\n        state[key] = item\r\n    })\r\n    return {...state}\r\n}\r\n\r\nexport function set_state(obj) {\r\n    return (name_space) => {\r\n        return effects.put({\r\n            type: `${name_space}/set_state`,\r\n            payload: obj\r\n        })\r\n    }\r\n}\r\n\r\nexport function set_history(history) {\r\n    window.__history__ = history;\r\n    return\r\n}\r\n\r\nexport function get_history() {\r\n    return window.__history__;\r\n}\r\n\r\nexport function * get_state(namespace) {\r\n    return yield effects.select(state => state[namespace]);\r\n}\r\n\r\nexport function find_item_in_array_by_id(key,id,array){\r\n    var _obj={};\r\n    _.each(array,(item)=>{\r\n        if(item[key]==id){\r\n            _obj=item\r\n            return false;\r\n        }\r\n    })\r\n    return _obj\r\n}",
@@ -854,7 +866,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 64,
+    "__docId__": 65,
     "kind": "function",
     "name": "isImage",
     "memberof": "src/util/uitls.js",
@@ -884,7 +896,7 @@
     }
   },
   {
-    "__docId__": 65,
+    "__docId__": 66,
     "kind": "function",
     "name": "array_remove_obj",
     "memberof": "src/util/uitls.js",
@@ -920,7 +932,7 @@
     }
   },
   {
-    "__docId__": 66,
+    "__docId__": 67,
     "kind": "function",
     "name": "array_distinct_insert_item",
     "memberof": "src/util/uitls.js",
@@ -956,7 +968,7 @@
     }
   },
   {
-    "__docId__": 67,
+    "__docId__": 68,
     "kind": "function",
     "name": "array_update_item",
     "memberof": "src/util/uitls.js",
@@ -992,7 +1004,7 @@
     }
   },
   {
-    "__docId__": 68,
+    "__docId__": 69,
     "kind": "function",
     "name": "adapter_size",
     "memberof": "src/util/uitls.js",
@@ -1022,7 +1034,7 @@
     }
   },
   {
-    "__docId__": 69,
+    "__docId__": 70,
     "kind": "function",
     "name": "S4",
     "memberof": "src/util/uitls.js",
@@ -1046,7 +1058,7 @@
     "ignore": true
   },
   {
-    "__docId__": 70,
+    "__docId__": 71,
     "kind": "function",
     "name": "uuid",
     "memberof": "src/util/uitls.js",
@@ -1069,7 +1081,7 @@
     }
   },
   {
-    "__docId__": 71,
+    "__docId__": 72,
     "kind": "function",
     "name": "isMatch",
     "memberof": "src/util/uitls.js",
@@ -1105,7 +1117,7 @@
     }
   },
   {
-    "__docId__": 72,
+    "__docId__": 73,
     "kind": "function",
     "name": "set_state_reducer",
     "memberof": "src/util/uitls.js",
@@ -1141,7 +1153,7 @@
     }
   },
   {
-    "__docId__": 73,
+    "__docId__": 74,
     "kind": "function",
     "name": "set_state",
     "memberof": "src/util/uitls.js",
@@ -1171,7 +1183,7 @@
     }
   },
   {
-    "__docId__": 74,
+    "__docId__": 75,
     "kind": "function",
     "name": "set_history",
     "memberof": "src/util/uitls.js",
@@ -1197,7 +1209,7 @@
     "return": null
   },
   {
-    "__docId__": 75,
+    "__docId__": 76,
     "kind": "function",
     "name": "get_history",
     "memberof": "src/util/uitls.js",
@@ -1220,7 +1232,7 @@
     }
   },
   {
-    "__docId__": 76,
+    "__docId__": 77,
     "kind": "function",
     "name": "get_state",
     "memberof": "src/util/uitls.js",
@@ -1250,7 +1262,7 @@
     }
   },
   {
-    "__docId__": 77,
+    "__docId__": 78,
     "kind": "function",
     "name": "find_item_in_array_by_id",
     "memberof": "src/util/uitls.js",
@@ -1293,7 +1305,7 @@
   },
   {
     "kind": "index",
-    "content": "# normalizr\r\n2.what is normalizr\r\n\r\n1.how to use normalizr\r\n\r\n3.practice\r\n",
+    "content": "# normalizr\r\n2.what is normalizr\r\n\r\n1.how to use normalizr\r\n\r\n3.practice\r\n\r\n![lover](https://ws1.sinaimg.cn/large/e3f4f606gy1fia3tbc8gmj20u01hcwk4.jpg)",
     "longname": "D:\\phpStudy\\WWW\\demo\\normalizr\\README.md",
     "name": "./README.md",
     "static": true,

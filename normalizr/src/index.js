@@ -1,7 +1,5 @@
 import React from 'react'
-
-import {normalize, schema , arrayOf} from "normalizr";
-
+import {normalize, schema, Array} from 'normalizr'
 
 /**
  * react组件 loading
@@ -11,21 +9,41 @@ import {normalize, schema , arrayOf} from "normalizr";
  * @desc
  * 主要App component
  * */
-class App extends React.Component{
+class App extends React.Component {
     componentDidMount() {
-        /**
-         * @type {Object} userSchema
-         * @desc
-         * 用来生成 数据的骨架，就是类！！？？
-         * what is inside in schema <br/>
-         * ![schema](http://p7whtc26y.bkt.clouddn.com/18-4-28/31936984.jpg) <br/>
-         * 我们可以看到几个对象，对应我们需要什么，就用什么！！？
-         *
-         * */
-        this.userSchema =new schema.Entity('users');
+        const wholeInfor = new schema.Entity("wholeInfor", {idAttribute: 'id'})
+        const designItem = new schema.Entity("designItem", {idAttribute: 'id'})
+        const product = new schema.Entity("product", undefined, {idAttribute: 'id'})
+        const printSpec = new schema.Entity("printSpec", undefined, {idAttribute: 'id'})
+        const printCustomization = new schema.Entity("printCustomization", {idAttribute: 'id'})
+        const productColor = new schema.Entity("productColor", undefined, {
+            idAttribute: (value) => {
+                return value['productColorId']
+            }
+        })
+        const designImage = new schema.Entity("designImage", {idAttribute: "id"})
+        wholeInfor.define({
+            designImage: designImage,
+            designItems: [designItem]
+        })
+        designItem.define({
+            products: [product]
+        })
+        product.define({
+            printSpecs: [printSpec],
+            printSpec: printSpec,
+            printCustomizations: [printCustomization],
+            productColors: [productColor]
+        })
+        printCustomization.define({
+            designImage: designImage
+        })
+
+        var result = normalize(require('./data').obj, wholeInfor)
         debugger
     }
-    render(){
+
+    render() {
         return (
             <div>
                 1.this is how to use ~~~Schema~~~
@@ -34,4 +52,5 @@ class App extends React.Component{
     }
 
 }
-export  default  App
+
+export default App

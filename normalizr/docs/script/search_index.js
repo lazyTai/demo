@@ -18,6 +18,12 @@ window.esdocSearchIndex = [
     "variable"
   ],
   [
+    "dingyi/src/data.js~array",
+    "variable/index.html#static-variable-array",
+    "<span>array</span> <span class=\"search-result-import-path\">dingyi/src/data.js</span>",
+    "variable"
+  ],
+  [
     "dingyi/src/util/uitls.js~array_distinct_insert_item",
     "function/index.html#static-function-array_distinct_insert_item",
     "<span>array_distinct_insert_item</span> <span class=\"search-result-import-path\">dingyi/src/util/uitls.js</span>",
@@ -414,6 +420,12 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/data.js",
+    "file/src/data.js.html",
+    "src/data.js",
+    "file"
+  ],
+  [
     "src/index.js",
     "file/src/index.js.html",
     "src/index.js",
@@ -430,12 +442,6 @@ window.esdocSearchIndex = [
     "class/src/index.js~App.html#instance-method-render",
     "src/index.js~App#render",
     "method"
-  ],
-  [
-    "src/index.js~app#userschema",
-    "class/src/index.js~App.html#instance-member-userSchema",
-    "src/index.js~App#userSchema",
-    "member"
   ],
   [
     "src/util/regs.js",

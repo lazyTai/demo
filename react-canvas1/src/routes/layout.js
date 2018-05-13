@@ -21,7 +21,10 @@ const MegerCanvas = Loadable({
     loader: () => import('./megerCanvas'),
     loading: Loading
 });
-
+const MegerCanvasFunc = Loadable({
+    loader: () => import('./testMergeCanvas'),
+    loading: Loading
+});
 class Layout extends React.Component {
     render() {
         return <div>
@@ -34,6 +37,8 @@ class Layout extends React.Component {
                 <Link to={"/app/draw"}>draw</Link><br/>
                 <Link to={"/app/fill-image"}>PageFillImage</Link><br/>
                 <Link to={"/app/merger-canvas"}>merger-canvas</Link><br/>
+                <Link to={"/app/test-merger-canvas-func"}>test-merger-canvas</Link><br/>
+
             </div>
             <div style={{padding: 30}}>
                 <Switch>
@@ -41,6 +46,7 @@ class Layout extends React.Component {
                     <Route path={"/app/draw"} component={PageDraw}></Route>
                     <Route path={"/app/fill-image"} component={PageFillImage}></Route>
                     <Route path={"/app/merger-canvas"} component={MegerCanvas}></Route>
+                    <Route path={"/app/test-merger-canvas-func"} component={MegerCanvasFunc}></Route>
                 </Switch>
             </div>
         </div>
