@@ -1,8 +1,8 @@
 #!/bin/bash
 #!/usr/bin/php
 # git config --global credential.helper store;
-git pull;
-# git add build  -f ;
+# git pull;
+git add build  -f ;
 git add . ;
 git commit -a -m 'git auto commit'
 # git log -1
